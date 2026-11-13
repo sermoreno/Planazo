@@ -30,6 +30,6 @@ La función (`supabase/functions/generate-plan`) usa el modelo `claude-opus-5-5`
 - `scripts/places.src.mjs` → fuente de los 40 lugares; `node scripts/gen-seed.mjs` regenera `src/data/places.json` y `supabase/seed.sql`.
 - `src/lib/planner.ts` → planificador local (fallback de la IA): proximidad, presupuesto y horario.
 - `src/lib/routing.ts` → rutas a pie OSRM (línea recta si falla). `src/lib/geocode.ts` → Nominatim con caché.
-- `src/components/ItineraryView.tsx` + `MapView.tsx` → Feature 2 (itinerario + mapa Leaflet con teselas CARTO Voyager; se cambian en `src/lib/tiles.ts` o con `VITE_TILES_URL`).
+- `src/components/ItineraryView.tsx` + `MapView.tsx` → Feature 2 (itinerario + mapa Leaflet con teselas estándar de OpenStreetMap, sin clave; se cambian en `src/lib/tiles.ts` o con `VITE_TILES_URL`).
 
 Horarios y precios del seed son estimaciones (`is_verified = false`).
