@@ -24,6 +24,7 @@ const ADJUSTS: { k: GlobalAdjust; label: string; I: typeof PiggyBank }[] = [
 ]
 
 type Pending = 'save' | 'share' | null
+const clearPending = () => { try { localStorage.removeItem('pz_pending'); sessionStorage.removeItem('pz_pending') } catch { /* nada */ } }
 
 export default function PlanPage() {
   const { id = '' } = useParams()
@@ -84,12 +85,23 @@ export default function PlanPage() {
     } finally { setBusy(false); setPending(null) }
   }
   const request = (kind: Exclude<Pending, null>) => {
-    if (!user) { setPending(kind); setModal('login'); return }
+    if (!user) {
+      setPending(kind); setModal('login')
+      // Con magic link se vuelve a esta página desde el email: recordamos qué se quería hacer.
+      try { sessionStorage.setItem('pz_pending', JSON.stringify({ id, kind })); localStorage.setItem('pz_pending', JSON.stringify({ id, kind })) } catch { /* sin almacenamiento */ }
+      return
+    }
     if (kind === 'share' && it?.is_public && it.share_slug && !dirty) { setCopied(false); setModal('share'); return }
     void doSave(kind)
   }
   // Al iniciar sesión desde el diálogo, se completa la acción que se pidió.
-  useEffect(() => { if (user && pending && modal === 'login') void doSave(pending) /* eslint-disable-line react-hooks/exhaustive-deps */ }, [user])
+  useEffect(() => { if (user && pending && modal === 'login') { clearPending(); void doSave(pending) } /* eslint-disable-line react-hooks/exhaustive-deps */ }, [user])
+  useEffect(() => {
+    if (!user || !it) return
+    let p: { id: string; kind: Exclude<Pending, null> } | null = null
+    try { p = JSON.parse(localStorage.getItem('pz_pending') ?? 'null') } catch { /* nada */ }
+    if (p && p.id === id) { clearPending(); void doSave(p.kind) }
+  }, [user, it?.id]) // eslint-disable-line react-hooks/exhaustive-deps
 
   if (it === undefined) return <div className="mx-auto max-w-6xl space-y-3 px-4 py-6"><Skeleton className="h-8 w-2/3" /><Skeleton className="h-40" /><Skeleton className="h-40" /></div>
   if (!it) return <EmptyState title="No encontramos este plan" text={user ? 'Puede que se borrara o que esté en otra cuenta.' : 'Si lo guardaste, entra en tu cuenta para verlo. Si no, crea uno nuevo en un minuto.'} cta={user ? { to: '/plan/nuevo', label: 'Crear un plan' } : { to: '/cuenta', label: 'Entrar' }} />
@@ -168,7 +180,7 @@ export default function PlanPage() {
         </AnimatePresence>
       </div>
 
-      <Modal open={modal === 'login'} onClose={() => { setModal(null); setPending(null) }} title={pending === 'share' ? 'Entra para compartir tu plan' : 'Entra para guardar tu plan'}>
+      <Modal open={modal === 'login'} onClose={() => { setModal(null); setPending(null); clearPending() }} title={pending === 'share' ? 'Entra para compartir tu plan' : 'Entra para guardar tu plan'}>
         <LoginForm note="Así lo tendrás en Mis planes desde cualquier momento." />
       </Modal>
       <Modal open={modal === 'premium'} onClose={() => setModal(null)} title="Has llegado al límite gratuito">

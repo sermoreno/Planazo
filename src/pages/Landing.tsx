@@ -14,6 +14,7 @@ const MOODS = [
   { label: 'Inspirarme', mood: 'Quiero inspirarme con arte y cultura' },
   { label: 'Con energía', mood: 'Quiero moverme y aprovechar el día' },
   { label: 'Algo especial', mood: 'Quiero un plan especial en pareja' },
+  { label: 'Con los peques', mood: 'Quiero un plan con los niños para pasarlo en familia' },
 ]
 const FEATURED = ['Templo de Debod', 'Palacio de Cristal', 'Mercado de San Miguel', 'Museo del Prado', 'Azotea del Círculo de Bellas Artes', 'Barcas del Estanque del Retiro', 'Matadero Madrid', 'Plaza Mayor', 'Café Central', 'Parque El Capricho', 'Parque del Retiro']
 

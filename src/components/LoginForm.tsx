@@ -15,7 +15,14 @@ export function LoginForm({ onDone, note }: { onDone?: () => void; note?: string
     try {
       const r = await signIn(email.trim())
       if (r === 'demo') { setState('idle'); onDone?.() } else setState('sent')
-    } catch (x) { setErr(x instanceof Error ? x.message : 'No se pudo enviar el enlace'); setState('error') }
+    } catch (x) {
+      const m = x instanceof Error ? x.message : ''
+      setErr(/rate limit|too many|seconds/i.test(m) ? 'Has pedido varios enlaces seguidos. Espera unos minutos y vuelve a intentarlo.'
+        : /fetch|network/i.test(m) ? 'No he podido conectar. Revisa tu conexión e inténtalo de nuevo.'
+        : /not allowed|signups|invalid/i.test(m) ? 'Ese email no puede entrar todavía. Revisa que esté bien escrito.'
+        : 'No se pudo enviar el enlace. Inténtalo de nuevo en un momento.')
+      setState('error')
+    }
   }
   if (state === 'sent') return (
     <div className="rounded-card bg-white p-4 shadow-soft">

@@ -21,6 +21,8 @@ const MOOD_RULES: [RegExp, string, string][] = [
   [/comer|gastr|tapas|hambre|comida/i, 'gastronomia', 'comer bien'],
   [/natur|aire libre|verde|sol|campo/i, 'naturaleza', 'aire libre'],
   [/sorpr|distint|nuevo|diferente|alternativ/i, 'alternativo', 'algo diferente'],
+  [/niñ|peque|hij|famil|cr[ií]as|chaval/i, 'niños', 'disfrutar con los peques'],
+  [/animal|zoo|acuario|delf/i, 'animales', 'ver animales'],
 ]
 
 const INTEREST_LABEL: Record<Interest, string> = {
@@ -52,8 +54,10 @@ function rng(seed: number) {
 function score(p: Place, prefs: Preferences, mood: { tag: string }[], clock: number, rand: () => number) {
   let s = 0
   for (const i of prefs.interests) if (p.tags.includes(i)) s += 3
-  for (const m of mood) if (p.tags.includes(m.tag)) s += 2
+  for (const m of mood) if (p.tags.includes(m.tag)) s += m.tag === 'animales' ? 4 : 2 // 'animales' es un deseo muy concreto
   if (prefs.companions && p.tags.includes(prefs.companions)) s += 1.5
+  if (prefs.companions === 'familia') s += p.tags.includes('niños') ? 2.5 : p.tags.includes('familia') ? 0 : -1.5
+  else if (p.tags.includes('dia-completo') && !prefs.interests.length) s -= 1.5 // los parques temáticos, solo si encajan
   if (prefs.constraints.calmer || prefs.pace === 'tranquilo') s += p.tags.includes('tranquilo') ? 1.5 : 0
   if (prefs.pace === 'intenso' && p.tags.includes('activo')) s += 1
   if (prefs.constraints.rain) s += p.indoor ? 3 : -6
@@ -70,7 +74,7 @@ function reasonFor(p: Place, prefs: Preferences, mood: { tag: string; label: str
   const sunset = p.tags.includes('atardecer') && Math.abs(start - sunsetMin()) <= 90
   const who = prefs.companions && p.tags.includes(prefs.companions) ? { solo: 'para ir a tu aire', pareja: 'para disfrutar en pareja', amigos: 'para compartir con amigos', familia: 'para ir en familia' }[prefs.companions] : ''
   const cost = p.avg_cost_eur === 0 ? 'es gratis' : p.price_level <= 1 ? 'cuida tu presupuesto' : 'encaja en tu presupuesto'
-  const why = isMeal ? 'te pilla a la hora de comer' : sunset ? 'es buen sitio para ver el atardecer' : m ? `te ayuda a ${m.label}` : interest ? `suma ${INTEREST_LABEL[interest]}` : prefs.constraints.rain && p.indoor ? 'es a cubierto si llueve' : 'queda de camino'
+  const why = p.tags.includes('dia-completo') ? 'llena el día y se come dentro del parque' : isMeal ? 'te pilla a la hora de comer' : sunset ? 'es buen sitio para ver el atardecer' : m ? `te ayuda a ${m.label}` : interest ? `suma ${INTEREST_LABEL[interest]}` : prefs.constraints.rain && p.indoor ? 'es a cubierto si llueve' : 'queda de camino'
   return `Encaja porque ${why}${who ? ', ' + who : ''} y ${cost}.`
 }
 
@@ -128,7 +132,7 @@ export function buildDay(prefs: Preferences, day: Day, opts: BuildOpts = {}): Sl
         .filter((c) => isOpen(c.p, day, c.start, c.end) && c.end <= endLimit && c.travel <= maxTravel && c.start - a.at <= 90)
         .map((c) => {
           let s = score(c.p, prefs, mood, c.start, rand) - c.travel / 6 - c.fromOrigin / 10
-          if (!prev && !prefs.constraints.origin) s -= distanceKm(SOL, c.p) / 1.5 // empezar cerca del centro
+          if (!prev && !prefs.constraints.origin) s -= distanceKm(SOL, c.p) / (prefs.companions === 'familia' ? 3 : 1.5) // empezar cerca del centro (en familia se acepta ir más lejos)
           const late = c.start >= 19 * 60
           if (a.kind !== 'sunset' && c.p.tags.includes('atardecer')) s -= 2.5 // guardar miradores para el atardecer
           if (!late && a.kind !== 'meal' && (NIGHT.has(c.p.category) || (c.p.category === 'bar' && c.p.tags.includes('nocturno')))) s -= 3
@@ -142,7 +146,7 @@ export function buildDay(prefs: Preferences, day: Day, opts: BuildOpts = {}): Sl
         .filter((c) => a.kind !== 'night' || c.s > 0)
         .sort((x, y) => y.s - x.s)[0]
     const near = pace === 'intenso' ? 45 : 35
-    const best = pick(true, near) ?? pick(false, near) ?? pick(false, 60)
+    const best = pick(true, near) ?? pick(false, near) ?? pick(false, 60) ?? (a.kind === 'meal' ? pick(false, 120) : undefined) // comer siempre, aunque toque metro
     if (!best) continue
     used.add(best.p.id)
     usedCats.push(best.p.category)

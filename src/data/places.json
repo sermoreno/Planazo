@@ -1266,5 +1266,1411 @@
   "external_url": "https://www.realmadrid.com",
   "description": "Visita al estadio renovado, vestuarios y museo del club.",
   "is_verified": false
+ },
+ {
+  "id": "e5cbe230-9d8f-50ae-abea-4582aa224c4b",
+  "name": "Zoo Aquarium de Madrid",
+  "category": "ocio",
+  "neighborhood": "Casa de Campo",
+  "address": "Casa de Campo, s/n",
+  "lat": 40.4086,
+  "lng": -3.7625,
+  "price_level": 3,
+  "avg_cost_eur": 26,
+  "avg_duration_min": 300,
+  "opening_hours": {
+   "sat": [
+    "10:30",
+    "18:00"
+   ],
+   "sun": [
+    "10:30",
+    "18:00"
+   ]
+  },
+  "indoor": false,
+  "tags": [
+   "familia",
+   "niños",
+   "naturaleza",
+   "animales",
+   "dia-completo"
+  ],
+  "external_url": "https://www.zoomadrid.com",
+  "description": "Zoo y acuario con delfinario y exhibición de aves; se come dentro del parque.",
+  "is_verified": false
+ },
+ {
+  "id": "022829d5-8638-57be-a696-47e55ca35e8b",
+  "name": "Parque de Atracciones de Madrid",
+  "category": "ocio",
+  "neighborhood": "Casa de Campo",
+  "address": "Casa de Campo, s/n",
+  "lat": 40.4128,
+  "lng": -3.7508,
+  "price_level": 3,
+  "avg_cost_eur": 32,
+  "avg_duration_min": 300,
+  "opening_hours": {
+   "sat": [
+    "12:00",
+    "19:00"
+   ],
+   "sun": [
+    "12:00",
+    "19:00"
+   ]
+  },
+  "indoor": false,
+  "tags": [
+   "familia",
+   "niños",
+   "amigos",
+   "activo",
+   "dia-completo"
+  ],
+  "external_url": "https://www.parquedeatracciones.es",
+  "description": "Montañas rusas, zona infantil Nickelodeon y espectáculos; con restaurantes dentro.",
+  "is_verified": false
+ },
+ {
+  "id": "5395c262-78c5-5e08-a974-1de1be64f902",
+  "name": "Faunia",
+  "category": "ocio",
+  "neighborhood": "Valdebernardo",
+  "address": "Avenida de las Comunidades, 28",
+  "lat": 40.3919,
+  "lng": -3.6125,
+  "price_level": 3,
+  "avg_cost_eur": 25,
+  "avg_duration_min": 300,
+  "opening_hours": {
+   "sat": [
+    "10:00",
+    "18:00"
+   ],
+   "sun": [
+    "10:00",
+    "18:00"
+   ]
+  },
+  "indoor": true,
+  "tags": [
+   "familia",
+   "niños",
+   "naturaleza",
+   "animales",
+   "lluvia",
+   "dia-completo"
+  ],
+  "external_url": "https://www.faunia.es",
+  "description": "Parque de naturaleza con ecosistemas a cubierto: pingüinos, selva tropical y granja.",
+  "is_verified": false
+ },
+ {
+  "id": "68b83b01-60cc-5d57-a94c-2fbb96d0efd5",
+  "name": "Teleférico de Madrid",
+  "category": "ocio",
+  "neighborhood": "Argüelles",
+  "address": "Paseo del Pintor Rosales, s/n",
+  "lat": 40.4265,
+  "lng": -3.7205,
+  "price_level": 1,
+  "avg_cost_eur": 7,
+  "avg_duration_min": 50,
+  "opening_hours": {
+   "sat": [
+    "12:00",
+    "19:00"
+   ],
+   "sun": [
+    "12:00",
+    "19:00"
+   ]
+  },
+  "indoor": false,
+  "tags": [
+   "familia",
+   "niños",
+   "pareja",
+   "fotogenico",
+   "naturaleza"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Telef%C3%A9rico%20de%20Madrid%2C%20Madrid",
+  "description": "Cabinas sobre el Parque del Oeste hasta la Casa de Campo, con vistas del Palacio Real.",
+  "is_verified": false
+ },
+ {
+  "id": "13b2a082-0b17-509f-a8a5-ce2ed16f23d6",
+  "name": "Planetario de Madrid",
+  "category": "museo",
+  "neighborhood": "Arganzuela",
+  "address": "Avenida del Planetario, 16 (Parque Tierno Galván)",
+  "lat": 40.3926,
+  "lng": -3.6838,
+  "price_level": 1,
+  "avg_cost_eur": 4,
+  "avg_duration_min": 75,
+  "opening_hours": {
+   "sat": [
+    "11:00",
+    "20:00"
+   ],
+   "sun": [
+    "11:00",
+    "20:00"
+   ]
+  },
+  "indoor": true,
+  "tags": [
+   "familia",
+   "niños",
+   "cultura",
+   "lluvia"
+  ],
+  "external_url": "https://www.planetmad.es",
+  "description": "Proyecciones bajo la cúpula y exposiciones sobre el universo para todas las edades.",
+  "is_verified": false
+ },
+ {
+  "id": "c4b20b7a-ded5-5212-a7fa-978b45f57088",
+  "name": "Museo de Cera de Madrid",
+  "category": "ocio",
+  "neighborhood": "Recoletos",
+  "address": "Paseo de Recoletos, 41",
+  "lat": 40.4253,
+  "lng": -3.6906,
+  "price_level": 3,
+  "avg_cost_eur": 22,
+  "avg_duration_min": 75,
+  "opening_hours": {
+   "sat": [
+    "10:00",
+    "20:30"
+   ],
+   "sun": [
+    "10:00",
+    "20:30"
+   ]
+  },
+  "indoor": true,
+  "tags": [
+   "familia",
+   "niños",
+   "lluvia",
+   "amigos"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Museo%20de%20Cera%20de%20Madrid%2C%20Madrid",
+  "description": "Más de 450 figuras de cera, simuladores y un tren del terror para los mayores.",
+  "is_verified": false
+ },
+ {
+  "id": "48128ddf-355e-569d-ab9c-cc5ac30ee043",
+  "name": "Palacio de Hielo",
+  "category": "deporte",
+  "neighborhood": "Hortaleza",
+  "address": "Calle de Silvano, 77",
+  "lat": 40.4632,
+  "lng": -3.6371,
+  "price_level": 2,
+  "avg_cost_eur": 12,
+  "avg_duration_min": 90,
+  "opening_hours": {
+   "sat": [
+    "11:00",
+    "21:00"
+   ],
+   "sun": [
+    "11:00",
+    "21:00"
+   ]
+  },
+  "indoor": true,
+  "tags": [
+   "familia",
+   "niños",
+   "amigos",
+   "activo",
+   "deporte",
+   "lluvia"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Palacio%20de%20Hielo%2C%20Madrid",
+  "description": "Pista de patinaje sobre hielo cubierta, con alquiler de patines.",
+  "is_verified": false
+ },
+ {
+  "id": "29a467c6-d2da-52cc-a983-6c81f263ba20",
+  "name": "Tour del Estadio Metropolitano",
+  "category": "deporte",
+  "neighborhood": "San Blas",
+  "address": "Avenida de Luis Aragonés, 4",
+  "lat": 40.4361,
+  "lng": -3.5994,
+  "price_level": 2,
+  "avg_cost_eur": 25,
+  "avg_duration_min": 90,
+  "opening_hours": {
+   "sat": [
+    "10:00",
+    "18:00"
+   ],
+   "sun": [
+    "10:00",
+    "18:00"
+   ]
+  },
+  "indoor": false,
+  "tags": [
+   "deporte",
+   "familia",
+   "niños",
+   "amigos"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Estadio%20Metropolitano%2C%20Madrid",
+  "description": "Visita al estadio del Atlético de Madrid: vestuarios, banquillos y museo. Cambia en días de partido.",
+  "is_verified": false
+ },
+ {
+  "id": "4c51e7f2-3d6c-5aee-a12c-6cb6d7e786d2",
+  "name": "Museo Nacional de Ciencias Naturales",
+  "category": "museo",
+  "neighborhood": "Chamartín",
+  "address": "Calle de José Gutiérrez Abascal, 2",
+  "lat": 40.441,
+  "lng": -3.6903,
+  "price_level": 1,
+  "avg_cost_eur": 7,
+  "avg_duration_min": 120,
+  "opening_hours": {
+   "sat": [
+    "10:00",
+    "20:00"
+   ],
+   "sun": [
+    "10:00",
+    "14:30"
+   ]
+  },
+  "indoor": true,
+  "tags": [
+   "familia",
+   "niños",
+   "cultura",
+   "naturaleza",
+   "lluvia"
+  ],
+  "external_url": "https://www.mncn.csic.es",
+  "description": "Dinosaurios, minerales y la sala de biodiversidad; talleres familiares el fin de semana.",
+  "is_verified": false
+ },
+ {
+  "id": "5e7695ad-94d8-5a75-ab85-fd965e18c9f1",
+  "name": "Museo del Ferrocarril",
+  "category": "museo",
+  "neighborhood": "Delicias",
+  "address": "Paseo de las Delicias, 61",
+  "lat": 40.3983,
+  "lng": -3.6942,
+  "price_level": 1,
+  "avg_cost_eur": 6,
+  "avg_duration_min": 90,
+  "opening_hours": {
+   "sat": [
+    "10:00",
+    "15:00"
+   ],
+   "sun": [
+    "10:00",
+    "15:00"
+   ]
+  },
+  "indoor": true,
+  "tags": [
+   "familia",
+   "niños",
+   "cultura",
+   "lluvia"
+  ],
+  "external_url": "https://www.museodelferrocarril.org",
+  "description": "Locomotoras de vapor en la antigua estación de Delicias, con maquetas y tren de jardín.",
+  "is_verified": false
+ },
+ {
+  "id": "bfeb3ebc-4f06-5beb-a69b-9163359068e6",
+  "name": "Museo Naval",
+  "category": "museo",
+  "neighborhood": "Cortes",
+  "address": "Paseo del Prado, 3",
+  "lat": 40.4175,
+  "lng": -3.6928,
+  "price_level": 0,
+  "avg_cost_eur": 0,
+  "avg_duration_min": 75,
+  "opening_hours": {
+   "sat": [
+    "10:00",
+    "19:00"
+   ],
+   "sun": [
+    "10:00",
+    "15:00"
+   ]
+  },
+  "indoor": true,
+  "tags": [
+   "familia",
+   "niños",
+   "cultura",
+   "lluvia"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Museo%20Naval%2C%20Madrid",
+  "description": "Maquetas de barcos, mascarones y el primer mapa con América. Donativo voluntario.",
+  "is_verified": false
+ },
+ {
+  "id": "d25d8aa7-1acb-5954-a617-6f9539cf969c",
+  "name": "Museo de América",
+  "category": "museo",
+  "neighborhood": "Moncloa",
+  "address": "Avenida de los Reyes Católicos, 6",
+  "lat": 40.4381,
+  "lng": -3.7221,
+  "price_level": 1,
+  "avg_cost_eur": 3,
+  "avg_duration_min": 90,
+  "opening_hours": {
+   "sat": [
+    "09:30",
+    "15:00"
+   ],
+   "sun": [
+    "10:00",
+    "15:00"
+   ]
+  },
+  "indoor": true,
+  "tags": [
+   "familia",
+   "cultura",
+   "lluvia",
+   "tranquilo"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Museo%20de%20Am%C3%A9rica%2C%20Madrid",
+  "description": "Tesoros precolombinos, el códice Tro-Cortesiano y momias andinas. Gratis los domingos.",
+  "is_verified": false
+ },
+ {
+  "id": "b9c49275-c370-5068-aac0-768217c85cc0",
+  "name": "Museo Nacional de Antropología",
+  "category": "museo",
+  "neighborhood": "Retiro",
+  "address": "Calle de Alfonso XII, 68",
+  "lat": 40.4077,
+  "lng": -3.689,
+  "price_level": 1,
+  "avg_cost_eur": 3,
+  "avg_duration_min": 60,
+  "opening_hours": {
+   "sat": [
+    "09:30",
+    "20:00"
+   ],
+   "sun": [
+    "10:00",
+    "15:00"
+   ]
+  },
+  "indoor": true,
+  "tags": [
+   "familia",
+   "cultura",
+   "lluvia",
+   "tranquilo"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Museo%20Nacional%20de%20Antropolog%C3%ADa%2C%20Madrid",
+  "description": "Viaje por las culturas del mundo junto a Atocha, con piezas que sorprenden a los niños.",
+  "is_verified": false
+ },
+ {
+  "id": "00d4fca9-164b-5825-a75e-e818cede9986",
+  "name": "Museo del Aire",
+  "category": "museo",
+  "neighborhood": "Cuatro Vientos",
+  "address": "Autovía A-5, km 10,7",
+  "lat": 40.3659,
+  "lng": -3.8038,
+  "price_level": 0,
+  "avg_cost_eur": 0,
+  "avg_duration_min": 150,
+  "opening_hours": {
+   "sat": [
+    "10:00",
+    "14:00"
+   ],
+   "sun": [
+    "10:00",
+    "14:00"
+   ]
+  },
+  "indoor": false,
+  "tags": [
+   "familia",
+   "niños",
+   "cultura"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Museo%20de%20Aeron%C3%A1utica%20y%20Astron%C3%A1utica%2C%20Madrid",
+  "description": "Más de 150 aviones en hangares y al aire libre junto al aeródromo de Cuatro Vientos.",
+  "is_verified": false
+ },
+ {
+  "id": "f8271a39-438c-556a-a88b-14bd5e8ee2d4",
+  "name": "Museo Geominero",
+  "category": "museo",
+  "neighborhood": "Chamberí",
+  "address": "Calle de Ríos Rosas, 23",
+  "lat": 40.4427,
+  "lng": -3.6996,
+  "price_level": 0,
+  "avg_cost_eur": 0,
+  "avg_duration_min": 60,
+  "opening_hours": {
+   "sat": [
+    "10:00",
+    "14:00"
+   ],
+   "sun": [
+    "10:00",
+    "14:00"
+   ]
+  },
+  "indoor": true,
+  "tags": [
+   "familia",
+   "niños",
+   "cultura",
+   "lluvia",
+   "tranquilo"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Museo%20Geominero%2C%20Madrid",
+  "description": "Vitrinas centenarias llenas de minerales, fósiles y meteoritos. Gratis.",
+  "is_verified": false
+ },
+ {
+  "id": "c06c3f05-bbe7-50c1-a954-4bebb52bb260",
+  "name": "Museo de Historia de Madrid",
+  "category": "museo",
+  "neighborhood": "Malasaña",
+  "address": "Calle de Fuencarral, 78",
+  "lat": 40.4258,
+  "lng": -3.7008,
+  "price_level": 0,
+  "avg_cost_eur": 0,
+  "avg_duration_min": 75,
+  "opening_hours": {
+   "sat": [
+    "10:00",
+    "20:00"
+   ],
+   "sun": [
+    "10:00",
+    "20:00"
+   ]
+  },
+  "indoor": true,
+  "tags": [
+   "familia",
+   "cultura",
+   "lluvia"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Museo%20de%20Historia%20de%20Madrid%2C%20Madrid",
+  "description": "La gran maqueta de Madrid de 1830 y la historia de la ciudad. Gratis.",
+  "is_verified": false
+ },
+ {
+  "id": "01b8c370-8c30-5126-acb5-58282ecbd3f4",
+  "name": "Museo de San Isidro",
+  "category": "museo",
+  "neighborhood": "La Latina",
+  "address": "Plaza de San Andrés, 2",
+  "lat": 40.4122,
+  "lng": -3.7109,
+  "price_level": 0,
+  "avg_cost_eur": 0,
+  "avg_duration_min": 45,
+  "opening_hours": {
+   "sat": [
+    "10:00",
+    "20:00"
+   ],
+   "sun": [
+    "10:00",
+    "15:00"
+   ]
+  },
+  "indoor": true,
+  "tags": [
+   "familia",
+   "cultura",
+   "lluvia",
+   "tranquilo"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Museo%20de%20San%20Isidro%2C%20Madrid",
+  "description": "Los orígenes de Madrid, con el pozo del milagro de San Isidro. Gratis y con talleres.",
+  "is_verified": false
+ },
+ {
+  "id": "1b14b877-a304-5e1d-a71a-22c9176c3e34",
+  "name": "Museo Casa de la Moneda",
+  "category": "museo",
+  "neighborhood": "Salamanca",
+  "address": "Calle del Doctor Esquerdo, 36",
+  "lat": 40.4229,
+  "lng": -3.669,
+  "price_level": 0,
+  "avg_cost_eur": 0,
+  "avg_duration_min": 75,
+  "opening_hours": {
+   "sat": [
+    "10:00",
+    "17:00"
+   ],
+   "sun": [
+    "10:00",
+    "14:00"
+   ]
+  },
+  "indoor": true,
+  "tags": [
+   "familia",
+   "cultura",
+   "lluvia",
+   "tranquilo"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Museo%20Casa%20de%20la%20Moneda%2C%20Madrid",
+  "description": "Monedas, billetes y sellos de todas las épocas, con talleres para niños. Gratis.",
+  "is_verified": false
+ },
+ {
+  "id": "a51291cf-2029-591c-af71-e52166024bd8",
+  "name": "Real Observatorio de Madrid",
+  "category": "museo",
+  "neighborhood": "Retiro",
+  "address": "Calle de Alfonso XII, 3",
+  "lat": 40.4084,
+  "lng": -3.6876,
+  "price_level": 1,
+  "avg_cost_eur": 5,
+  "avg_duration_min": 75,
+  "opening_hours": {
+   "sat": [
+    "10:00",
+    "18:00"
+   ],
+   "sun": [
+    "10:00",
+    "18:00"
+   ]
+  },
+  "indoor": true,
+  "tags": [
+   "familia",
+   "cultura",
+   "tranquilo"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Real%20Observatorio%20de%20Madrid%2C%20Madrid",
+  "description": "Edificio de Villanueva con la réplica del gran telescopio de Herschel. Visitas guiadas con reserva.",
+  "is_verified": false
+ },
+ {
+  "id": "a131d956-2aac-55b7-af19-b46ba98279a7",
+  "name": "Mirador de CentroCentro",
+  "category": "mirador",
+  "neighborhood": "Cortes",
+  "address": "Plaza de Cibeles, 1",
+  "lat": 40.4186,
+  "lng": -3.6917,
+  "price_level": 1,
+  "avg_cost_eur": 3,
+  "avg_duration_min": 45,
+  "opening_hours": {
+   "sat": [
+    "10:30",
+    "19:00"
+   ],
+   "sun": [
+    "10:30",
+    "19:00"
+   ]
+  },
+  "indoor": true,
+  "tags": [
+   "familia",
+   "cultura",
+   "fotogenico",
+   "lluvia"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=CentroCentro%20Palacio%20de%20Cibeles%2C%20Madrid",
+  "description": "Vistas de Cibeles y la Gran Vía desde la torre del Palacio de Cibeles.",
+  "is_verified": false
+ },
+ {
+  "id": "4ee1259f-bd8d-5dbf-ade9-10c8add123c0",
+  "name": "Parque Quinta de los Molinos",
+  "category": "parque",
+  "neighborhood": "San Blas",
+  "address": "Calle de Alcalá, 527",
+  "lat": 40.4439,
+  "lng": -3.6275,
+  "price_level": 0,
+  "avg_cost_eur": 0,
+  "avg_duration_min": 75,
+  "opening_hours": {
+   "sat": [
+    "07:00",
+    "22:00"
+   ],
+   "sun": [
+    "07:00",
+    "22:00"
+   ]
+  },
+  "indoor": false,
+  "tags": [
+   "naturaleza",
+   "familia",
+   "tranquilo",
+   "fotogenico"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Parque%20Quinta%20de%20los%20Molinos%2C%20Madrid",
+  "description": "Almendros en flor a final de invierno, molinos de viento y un estanque.",
+  "is_verified": false
+ },
+ {
+  "id": "1c4c99ce-60da-53af-a3c9-4bbee9954298",
+  "name": "Parque Enrique Tierno Galván",
+  "category": "parque",
+  "neighborhood": "Arganzuela",
+  "address": "Calle de Meneses, 4",
+  "lat": 40.3936,
+  "lng": -3.6854,
+  "price_level": 0,
+  "avg_cost_eur": 0,
+  "avg_duration_min": 60,
+  "opening_hours": {
+   "sat": [
+    "07:00",
+    "23:00"
+   ],
+   "sun": [
+    "07:00",
+    "23:00"
+   ]
+  },
+  "indoor": false,
+  "tags": [
+   "naturaleza",
+   "familia",
+   "niños",
+   "activo",
+   "atardecer"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Parque%20Enrique%20Tierno%20Galv%C3%A1n%2C%20Madrid",
+  "description": "Colinas con vistas, columpios y el Planetario; buen sitio para ver anochecer.",
+  "is_verified": false
+ },
+ {
+  "id": "db4a72ac-693b-51f6-af6a-d6a098e78ec9",
+  "name": "Campo del Moro",
+  "category": "parque",
+  "neighborhood": "Palacio",
+  "address": "Paseo de la Virgen del Puerto, s/n",
+  "lat": 40.4182,
+  "lng": -3.7191,
+  "price_level": 0,
+  "avg_cost_eur": 0,
+  "avg_duration_min": 60,
+  "opening_hours": {
+   "sat": [
+    "10:00",
+    "18:00"
+   ],
+   "sun": [
+    "10:00",
+    "18:00"
+   ]
+  },
+  "indoor": false,
+  "tags": [
+   "naturaleza",
+   "familia",
+   "tranquilo",
+   "pareja",
+   "fotogenico"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Campo%20del%20Moro%2C%20Madrid",
+  "description": "Jardines bajo el Palacio Real con pavos reales sueltos y la fuente de las Conchas.",
+  "is_verified": false
+ },
+ {
+  "id": "30e21565-4a1d-50e2-a17d-781bc92d77d7",
+  "name": "Jardines de Sabatini",
+  "category": "parque",
+  "neighborhood": "Palacio",
+  "address": "Calle de Bailén, 2",
+  "lat": 40.4202,
+  "lng": -3.7139,
+  "price_level": 0,
+  "avg_cost_eur": 0,
+  "avg_duration_min": 30,
+  "opening_hours": {
+   "sat": [
+    "09:00",
+    "21:00"
+   ],
+   "sun": [
+    "09:00",
+    "21:00"
+   ]
+  },
+  "indoor": false,
+  "tags": [
+   "naturaleza",
+   "familia",
+   "tranquilo",
+   "atardecer",
+   "fotogenico"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Jardines%20de%20Sabatini%2C%20Madrid",
+  "description": "Jardín geométrico junto al Palacio Real; bonito al caer la tarde.",
+  "is_verified": false
+ },
+ {
+  "id": "4c3dad7e-0cbe-56fc-a907-8875e2505bea",
+  "name": "Parque de la Dehesa de la Villa",
+  "category": "parque",
+  "neighborhood": "Dehesa de la Villa",
+  "address": "Calle de Francos Rodríguez, s/n",
+  "lat": 40.4575,
+  "lng": -3.7196,
+  "price_level": 0,
+  "avg_cost_eur": 0,
+  "avg_duration_min": 75,
+  "opening_hours": {
+   "sat": [
+    "00:00",
+    "23:59"
+   ],
+   "sun": [
+    "00:00",
+    "23:59"
+   ]
+  },
+  "indoor": false,
+  "tags": [
+   "naturaleza",
+   "familia",
+   "tranquilo",
+   "atardecer"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Dehesa%20de%20la%20Villa%2C%20Madrid",
+  "description": "Pinar con merenderos y uno de los atardeceres más bonitos del norte de Madrid.",
+  "is_verified": false
+ },
+ {
+  "id": "58ab2e70-d9c8-5774-a4ea-70314f72ed83",
+  "name": "Parque Forestal de Valdebebas",
+  "category": "parque",
+  "neighborhood": "Hortaleza",
+  "address": "Avenida de las Fuerzas Armadas, s/n",
+  "lat": 40.4909,
+  "lng": -3.6317,
+  "price_level": 0,
+  "avg_cost_eur": 0,
+  "avg_duration_min": 90,
+  "opening_hours": {
+   "sat": [
+    "07:00",
+    "22:00"
+   ],
+   "sun": [
+    "07:00",
+    "22:00"
+   ]
+  },
+  "indoor": false,
+  "tags": [
+   "naturaleza",
+   "familia",
+   "deporte",
+   "activo"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Parque%20Forestal%20de%20Valdebebas%2C%20Madrid",
+  "description": "Gran parque forestal con rutas en bici, lago y miradores hacia la sierra.",
+  "is_verified": false
+ },
+ {
+  "id": "d29725a3-4c42-558d-ac5c-b33b1424100d",
+  "name": "Parque de Berlín",
+  "category": "parque",
+  "neighborhood": "Chamartín",
+  "address": "Avenida de Ramón y Cajal, 2",
+  "lat": 40.4504,
+  "lng": -3.6758,
+  "price_level": 0,
+  "avg_cost_eur": 0,
+  "avg_duration_min": 45,
+  "opening_hours": {
+   "sat": [
+    "00:00",
+    "23:59"
+   ],
+   "sun": [
+    "00:00",
+    "23:59"
+   ]
+  },
+  "indoor": false,
+  "tags": [
+   "naturaleza",
+   "familia",
+   "niños",
+   "tranquilo"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Parque%20de%20Berl%C3%ADn%2C%20Madrid",
+  "description": "Parque de barrio con zona infantil, estanques y fragmentos del Muro de Berlín.",
+  "is_verified": false
+ },
+ {
+  "id": "bac21458-2c24-59c3-ac2b-f1202339e4f5",
+  "name": "Parque Juan Pablo II",
+  "category": "parque",
+  "neighborhood": "Hortaleza",
+  "address": "Calle de Ayacucho, s/n",
+  "lat": 40.455,
+  "lng": -3.6269,
+  "price_level": 0,
+  "avg_cost_eur": 0,
+  "avg_duration_min": 60,
+  "opening_hours": {
+   "sat": [
+    "07:00",
+    "23:00"
+   ],
+   "sun": [
+    "07:00",
+    "23:00"
+   ]
+  },
+  "indoor": false,
+  "tags": [
+   "naturaleza",
+   "familia",
+   "niños",
+   "activo"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Parque%20Juan%20Pablo%20II%2C%20Madrid",
+  "description": "Rosaleda, lagos y grandes áreas de juego para niños en Hortaleza.",
+  "is_verified": false
+ },
+ {
+  "id": "a578655d-93da-5f67-a62a-f572ca098931",
+  "name": "Parque de Pradolongo",
+  "category": "parque",
+  "neighborhood": "Usera",
+  "address": "Calle de Rafaela Ybarra, s/n",
+  "lat": 40.3752,
+  "lng": -3.7063,
+  "price_level": 0,
+  "avg_cost_eur": 0,
+  "avg_duration_min": 60,
+  "opening_hours": {
+   "sat": [
+    "07:00",
+    "23:00"
+   ],
+   "sun": [
+    "07:00",
+    "23:00"
+   ]
+  },
+  "indoor": false,
+  "tags": [
+   "naturaleza",
+   "familia",
+   "niños",
+   "activo",
+   "deporte"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Parque%20de%20Pradolongo%2C%20Madrid",
+  "description": "Uno de los grandes parques del sur, con lago, praderas y zonas de juego.",
+  "is_verified": false
+ },
+ {
+  "id": "72a40530-2717-5d9a-a0cf-3019dd0eddcf",
+  "name": "Parque Lineal del Manzanares",
+  "category": "parque",
+  "neighborhood": "Villaverde",
+  "address": "La Dama del Manzanares, Avenida de los Rosales",
+  "lat": 40.3782,
+  "lng": -3.6838,
+  "price_level": 0,
+  "avg_cost_eur": 0,
+  "avg_duration_min": 75,
+  "opening_hours": {
+   "sat": [
+    "00:00",
+    "23:59"
+   ],
+   "sun": [
+    "00:00",
+    "23:59"
+   ]
+  },
+  "indoor": false,
+  "tags": [
+   "naturaleza",
+   "familia",
+   "deporte",
+   "activo",
+   "alternativo"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Parque%20Lineal%20del%20Manzanares%2C%20Madrid",
+  "description": "Paseos y carril bici junto al río, presididos por la escultura de la Dama del Manzanares.",
+  "is_verified": false
+ },
+ {
+  "id": "61b7f9d6-b3f2-5b64-a621-7e26c42ed9c0",
+  "name": "Quinta de la Fuente del Berro",
+  "category": "parque",
+  "neighborhood": "Salamanca",
+  "address": "Calle de Enrique d'Almonte, 1",
+  "lat": 40.4227,
+  "lng": -3.6613,
+  "price_level": 0,
+  "avg_cost_eur": 0,
+  "avg_duration_min": 45,
+  "opening_hours": {
+   "sat": [
+    "10:00",
+    "18:00"
+   ],
+   "sun": [
+    "10:00",
+    "18:00"
+   ]
+  },
+  "indoor": false,
+  "tags": [
+   "naturaleza",
+   "tranquilo",
+   "familia",
+   "pareja",
+   "fotogenico"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Quinta%20de%20la%20Fuente%20del%20Berro%2C%20Madrid",
+  "description": "Jardín romántico escondido, con pavos reales, cascadas y estanques.",
+  "is_verified": false
+ },
+ {
+  "id": "d60d1523-6a1b-58d9-a45c-149be61a4c70",
+  "name": "La Mallorquina",
+  "category": "cafetería",
+  "neighborhood": "Sol",
+  "address": "Puerta del Sol, 8",
+  "lat": 40.4167,
+  "lng": -3.7043,
+  "price_level": 1,
+  "avg_cost_eur": 6,
+  "avg_duration_min": 30,
+  "opening_hours": {
+   "sat": [
+    "08:30",
+    "21:00"
+   ],
+   "sun": [
+    "08:30",
+    "21:00"
+   ]
+  },
+  "indoor": true,
+  "tags": [
+   "gastronomia",
+   "familia",
+   "niños",
+   "lluvia"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=La%20Mallorquina%20Puerta%20del%20Sol%2C%20Madrid",
+  "description": "Pastelería de 1894 famosa por sus napolitanas y su salón con vistas a Sol.",
+  "is_verified": false
+ },
+ {
+  "id": "9fd4acdd-1135-5ed7-a4cf-23868678b68d",
+  "name": "Taberna La Bola",
+  "category": "restaurante",
+  "neighborhood": "Palacio",
+  "address": "Calle de la Bola, 5",
+  "lat": 40.42,
+  "lng": -3.7104,
+  "price_level": 2,
+  "avg_cost_eur": 30,
+  "avg_duration_min": 90,
+  "opening_hours": {
+   "sat": [
+    "13:00",
+    "23:30"
+   ],
+   "sun": [
+    "13:00",
+    "16:30"
+   ]
+  },
+  "indoor": true,
+  "tags": [
+   "gastronomia",
+   "familia",
+   "cultura",
+   "lluvia"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Taberna%20La%20Bola%2C%20Madrid",
+  "description": "Cocido madrileño en puchero de barro desde 1870.",
+  "is_verified": false
+ },
+ {
+  "id": "f4f91a92-6444-5502-a253-f5fd9cdad9dc",
+  "name": "Café de Oriente",
+  "category": "restaurante",
+  "neighborhood": "Palacio",
+  "address": "Plaza de Oriente, 2",
+  "lat": 40.4183,
+  "lng": -3.7114,
+  "price_level": 2,
+  "avg_cost_eur": 20,
+  "avg_duration_min": 60,
+  "opening_hours": {
+   "sat": [
+    "09:00",
+    "23:30"
+   ],
+   "sun": [
+    "09:00",
+    "23:30"
+   ]
+  },
+  "indoor": true,
+  "tags": [
+   "gastronomia",
+   "familia",
+   "pareja",
+   "lluvia"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Caf%C3%A9%20de%20Oriente%2C%20Madrid",
+  "description": "Café-restaurante clásico frente al Palacio Real, con terraza en la plaza.",
+  "is_verified": false
+ },
+ {
+  "id": "313471a8-9e7d-5957-a87e-b94f8fe22580",
+  "name": "Casa Mingo",
+  "category": "restaurante",
+  "neighborhood": "Moncloa",
+  "address": "Paseo de la Florida, 34",
+  "lat": 40.4251,
+  "lng": -3.7254,
+  "price_level": 1,
+  "avg_cost_eur": 18,
+  "avg_duration_min": 75,
+  "opening_hours": {
+   "sat": [
+    "11:00",
+    "23:30"
+   ],
+   "sun": [
+    "11:00",
+    "23:30"
+   ]
+  },
+  "indoor": true,
+  "tags": [
+   "gastronomia",
+   "familia",
+   "niños",
+   "amigos",
+   "lluvia"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Casa%20Mingo%2C%20Madrid",
+  "description": "Sidrería asturiana de 1888 con pollo asado y sidra, ideal para ir con niños.",
+  "is_verified": false
+ },
+ {
+  "id": "a1e8748f-f4e5-5acf-a4a9-1fe9c9da8a72",
+  "name": "Casa Alberto",
+  "category": "restaurante",
+  "neighborhood": "Huertas",
+  "address": "Calle de las Huertas, 18",
+  "lat": 40.4139,
+  "lng": -3.7001,
+  "price_level": 2,
+  "avg_cost_eur": 30,
+  "avg_duration_min": 90,
+  "opening_hours": {
+   "sat": [
+    "12:00",
+    "23:30"
+   ],
+   "sun": [
+    "12:00",
+    "23:30"
+   ]
+  },
+  "indoor": true,
+  "tags": [
+   "gastronomia",
+   "familia",
+   "cultura",
+   "lluvia"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Casa%20Alberto%20Huertas%2C%20Madrid",
+  "description": "Taberna de 1827 con rabo de toro, callos y croquetas caseras.",
+  "is_verified": false
+ },
+ {
+  "id": "bf9e6cf2-ee55-525f-a116-380f53a272de",
+  "name": "Café Comercial",
+  "category": "cafetería",
+  "neighborhood": "Malasaña",
+  "address": "Glorieta de Bilbao, 7",
+  "lat": 40.4289,
+  "lng": -3.7024,
+  "price_level": 1,
+  "avg_cost_eur": 15,
+  "avg_duration_min": 60,
+  "opening_hours": {
+   "sat": [
+    "09:00",
+    "23:59"
+   ],
+   "sun": [
+    "09:00",
+    "23:59"
+   ]
+  },
+  "indoor": true,
+  "tags": [
+   "gastronomia",
+   "familia",
+   "cultura",
+   "lluvia",
+   "tranquilo"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Caf%C3%A9%20Comercial%2C%20Madrid",
+  "description": "Café histórico de 1887 con desayunos, menú y meriendas.",
+  "is_verified": false
+ },
+ {
+  "id": "407a0015-3a53-5602-a00d-c36114cbcdb1",
+  "name": "Mercado de San Antón",
+  "category": "mercado",
+  "neighborhood": "Chueca",
+  "address": "Calle de Augusto Figueroa, 24",
+  "lat": 40.422,
+  "lng": -3.6977,
+  "price_level": 2,
+  "avg_cost_eur": 20,
+  "avg_duration_min": 75,
+  "opening_hours": {
+   "sat": [
+    "10:00",
+    "23:30"
+   ],
+   "sun": [
+    "10:00",
+    "23:30"
+   ]
+  },
+  "indoor": true,
+  "tags": [
+   "gastronomia",
+   "mercadillos",
+   "familia",
+   "amigos",
+   "lluvia"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Mercado%20de%20San%20Ant%C3%B3n%2C%20Madrid",
+  "description": "Mercado con puestos para picar en la planta alta y terraza en la azotea.",
+  "is_verified": false
+ },
+ {
+  "id": "99293a02-cfc4-5a34-a5f8-7198bd6bb3a9",
+  "name": "Mercado de Barceló",
+  "category": "mercado",
+  "neighborhood": "Malasaña",
+  "address": "Calle de Barceló, 6",
+  "lat": 40.4269,
+  "lng": -3.6988,
+  "price_level": 1,
+  "avg_cost_eur": 10,
+  "avg_duration_min": 45,
+  "opening_hours": {
+   "sat": [
+    "09:00",
+    "14:30"
+   ]
+  },
+  "indoor": true,
+  "tags": [
+   "gastronomia",
+   "mercadillos",
+   "familia",
+   "lluvia"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Mercado%20de%20Barcel%C3%B3%2C%20Madrid",
+  "description": "Mercado de barrio moderno con puestos para comer algo el sábado por la mañana.",
+  "is_verified": false
+ },
+ {
+  "id": "2ec936fe-fdd7-55f4-ac42-d526b9e313ac",
+  "name": "Mercado de Vallehermoso",
+  "category": "mercado",
+  "neighborhood": "Chamberí",
+  "address": "Calle de Vallehermoso, 36",
+  "lat": 40.434,
+  "lng": -3.7084,
+  "price_level": 1,
+  "avg_cost_eur": 18,
+  "avg_duration_min": 60,
+  "opening_hours": {
+   "sat": [
+    "10:00",
+    "23:00"
+   ],
+   "sun": [
+    "12:00",
+    "16:30"
+   ]
+  },
+  "indoor": true,
+  "tags": [
+   "gastronomia",
+   "mercadillos",
+   "familia",
+   "amigos",
+   "lluvia"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Mercado%20de%20Vallehermoso%2C%20Madrid",
+  "description": "Mercado de barrio con puestos de cocina de autor a precios razonables.",
+  "is_verified": false
+ },
+ {
+  "id": "49c4b9a0-8073-56a3-ac39-871b98fd51cd",
+  "name": "Mercado de la Paz",
+  "category": "mercado",
+  "neighborhood": "Salamanca",
+  "address": "Calle de Ayala, 28",
+  "lat": 40.4276,
+  "lng": -3.6857,
+  "price_level": 1,
+  "avg_cost_eur": 12,
+  "avg_duration_min": 45,
+  "opening_hours": {
+   "sat": [
+    "09:00",
+    "15:00"
+   ]
+  },
+  "indoor": true,
+  "tags": [
+   "gastronomia",
+   "mercadillos",
+   "familia",
+   "lluvia"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Mercado%20de%20la%20Paz%2C%20Madrid",
+  "description": "Mercado tradicional del barrio de Salamanca, famoso por su tortilla de patatas.",
+  "is_verified": false
+ },
+ {
+  "id": "b8984308-33e7-5664-a427-290bc4f36c00",
+  "name": "Mercado de Chamartín",
+  "category": "mercado",
+  "neighborhood": "Chamartín",
+  "address": "Calle de Bolivia, 9",
+  "lat": 40.4573,
+  "lng": -3.678,
+  "price_level": 2,
+  "avg_cost_eur": 15,
+  "avg_duration_min": 45,
+  "opening_hours": {
+   "sat": [
+    "09:00",
+    "14:30"
+   ]
+  },
+  "indoor": true,
+  "tags": [
+   "gastronomia",
+   "mercadillos",
+   "familia",
+   "lluvia"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Mercado%20de%20Chamart%C3%ADn%2C%20Madrid",
+  "description": "Mercado gourmet de barrio con barras para tomar el aperitivo.",
+  "is_verified": false
+ },
+ {
+  "id": "67f6072d-d700-59a7-a4dd-1fff66737b04",
+  "name": "Mercado de Maravillas",
+  "category": "mercado",
+  "neighborhood": "Tetuán",
+  "address": "Calle de Bravo Murillo, 122",
+  "lat": 40.4491,
+  "lng": -3.7038,
+  "price_level": 1,
+  "avg_cost_eur": 10,
+  "avg_duration_min": 45,
+  "opening_hours": {
+   "sat": [
+    "09:00",
+    "14:30"
+   ]
+  },
+  "indoor": true,
+  "tags": [
+   "gastronomia",
+   "mercadillos",
+   "familia",
+   "alternativo",
+   "lluvia"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Mercado%20de%20Maravillas%2C%20Madrid",
+  "description": "Uno de los mercados más grandes de Europa, con puestos de comida latinoamericana.",
+  "is_verified": false
+ },
+ {
+  "id": "514fe95e-acc3-555c-a08b-0b0760a9298e",
+  "name": "Mercado de la Cebada",
+  "category": "mercado",
+  "neighborhood": "La Latina",
+  "address": "Plaza de la Cebada, 15",
+  "lat": 40.4111,
+  "lng": -3.7098,
+  "price_level": 1,
+  "avg_cost_eur": 12,
+  "avg_duration_min": 45,
+  "opening_hours": {
+   "sat": [
+    "09:00",
+    "15:00"
+   ]
+  },
+  "indoor": true,
+  "tags": [
+   "gastronomia",
+   "mercadillos",
+   "familia",
+   "amigos",
+   "lluvia"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Mercado%20de%20la%20Cebada%2C%20Madrid",
+  "description": "Mercado popular de La Latina; los sábados a mediodía se llena de puestos de marisco.",
+  "is_verified": false
  }
 ]

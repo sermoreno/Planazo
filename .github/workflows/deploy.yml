@@ -23,8 +23,10 @@ jobs:
       - run: npm run build
         env:
           VITE_BASE: /${{ github.event.repository.name }}/
-          VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL }}
-          VITE_SUPABASE_ANON_KEY: ${{ vars.VITE_SUPABASE_ANON_KEY }}
+          VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL || 'https://kpxqpnqitloizfgusqnu.supabase.co' }}
+          # Clave publicable (pública por diseño: la seguridad la ponen las reglas RLS de la base de datos)
+          VITE_SUPABASE_ANON_KEY: ${{ vars.VITE_SUPABASE_ANON_KEY || 'sb_publishable_2BDkni2Dzp8Bm6hq9LI8oQ_3nPHDBHB' }}
+          VITE_AI_FUNCTION: ${{ vars.VITE_AI_FUNCTION || '0' }}
       # Rutas limpias (/plan/..., /p/...) en GitHub Pages: 404.html sirve la app
       - run: cp dist/index.html dist/404.html
       - uses: actions/upload-pages-artifact@v3

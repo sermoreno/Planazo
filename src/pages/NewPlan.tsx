@@ -24,7 +24,7 @@ type Stage = 'form' | 'chat' | 'generating'
 export default function NewPlan() {
   const location = useLocation()
   const navState = location.state as { mood?: string; origin?: { label: string; lat: number; lng: number } } | null
-  const [prefs, setPrefs] = useState<Preferences>(() => ({ ...INITIAL, mood: navState?.mood ?? '', constraints: { ...INITIAL.constraints, origin: navState?.origin } }))
+  const [prefs, setPrefs] = useState<Preferences>(() => ({ ...INITIAL, mood: navState?.mood ?? '', companions: /niñ|peque|famil|hij/i.test(navState?.mood ?? '') ? 'familia' : null, constraints: { ...INITIAL.constraints, origin: navState?.origin } }))
   const [origin, setOrigin] = useState(navState?.origin?.label ?? '')
   const [stage, setStage] = useState<Stage>('form')
   const [msgs, setMsgs] = useState<Msg[]>([])

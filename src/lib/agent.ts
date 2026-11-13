@@ -45,7 +45,8 @@ export interface GenResult { it: Itinerary; message: string }
 
 /** Genera el plan con IA si hay Supabase + Edge Function; si no (o si falla), con el planificador local. */
 export async function generatePlan(prefs: Preferences): Promise<GenResult> {
-  if (supabase) {
+  // La función de IA se activa al desplegarla (VITE_AI_FUNCTION=1); mientras, planificador local sin esperas.
+  if (supabase && import.meta.env.VITE_AI_FUNCTION === '1') {
     try {
       const ctrl = new AbortController()
       const t = setTimeout(() => ctrl.abort(), 50_000)
