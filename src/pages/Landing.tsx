@@ -16,7 +16,7 @@ const MOODS = [
   { label: 'Algo especial', mood: 'Quiero un plan especial en pareja' },
   { label: 'Con los peques', mood: 'Quiero un plan con los niños para pasarlo en familia' },
 ]
-const FEATURED = ['Templo de Debod', 'Palacio de Cristal', 'Mercado de San Miguel', 'Museo del Prado', 'Azotea del Círculo de Bellas Artes', 'Barcas del Estanque del Retiro', 'Matadero Madrid', 'Plaza Mayor', 'Café Central', 'Parque El Capricho', 'Parque del Retiro']
+const FEATURED = ['Templo de Debod', 'Palacio de Cristal', 'Teleférico de Madrid', 'Mercado de San Miguel', 'Museo Nacional de Ciencias Naturales', 'Museo del Prado', 'Azotea del Círculo de Bellas Artes', 'Barcas del Estanque del Retiro', 'Matadero Madrid', 'Plaza Mayor', 'Café Central', 'Parque El Capricho', 'Zoo Aquarium de Madrid', 'Parque del Retiro']
 
 export default function Landing() {
   const navigate = useNavigate()

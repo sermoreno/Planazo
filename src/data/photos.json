@@ -379,6 +379,393 @@
    "artist": "losmininos",
    "license": "CC BY-SA 2.0",
    "page": "https://commons.wikimedia.org/wiki/File:Museo_del_Prado._Trasera_edificio_Juan_de_Villanueva.jpg"
+  },
+  "zoo-aquarium-de-madrid": {
+   "src": "photos/places-zoo-aquarium-de-madrid.webp",
+   "w": 720,
+   "h": 304,
+   "title": "File:Madrid Zoo - entrance.jpg",
+   "artist": "Tiia Monto",
+   "license": "CC BY-SA 3.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Madrid_Zoo_-_entrance.jpg"
+  },
+  "parque-de-atracciones-de-madrid": {
+   "src": "photos/places-parque-de-atracciones-de-madrid.webp",
+   "w": 720,
+   "h": 540,
+   "title": "File:Los Fiordos - Parque de Atracciones de Madrid.jpg",
+   "artist": "Freddo",
+   "license": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Los_Fiordos_-_Parque_de_Atracciones_de_Madrid.jpg"
+  },
+  "faunia": {
+   "src": "photos/places-faunia.webp",
+   "w": 720,
+   "h": 540,
+   "title": "File:At Faunia in Madrid, Spain.JPG",
+   "artist": "David Adam Kess",
+   "license": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:At_Faunia_in_Madrid,_Spain.JPG"
+  },
+  "teleferico-de-madrid": {
+   "src": "photos/places-teleferico-de-madrid.webp",
+   "w": 720,
+   "h": 438,
+   "title": "File:Teleférico de Madrid (30209578353).jpg",
+   "artist": "Tim Adams from San Francisco",
+   "license": "CC BY 2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Telef%C3%A9rico_de_Madrid_(30209578353).jpg"
+  },
+  "planetario-de-madrid": {
+   "src": "photos/places-planetario-de-madrid.webp",
+   "w": 720,
+   "h": 397,
+   "title": "File:Granformato.planetario00.jpg",
+   "artist": "Hari Seldon",
+   "license": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Granformato.planetario00.jpg"
+  },
+  "museo-de-cera-de-madrid": {
+   "src": "photos/places-museo-de-cera-de-madrid.webp",
+   "w": 720,
+   "h": 426,
+   "title": "File:001783 - Madrid (4300311860).jpg",
+   "artist": "M.Peinado from Alcalá de Henares, España",
+   "license": "CC BY 2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:001783_-_Madrid_(4300311860).jpg"
+  },
+  "palacio-de-hielo": {
+   "src": "photos/places-palacio-de-hielo.webp",
+   "w": 720,
+   "h": 540,
+   "title": "File:Palacio de Hielo (Madrid - 2022).jpg",
+   "artist": "KingValid04",
+   "license": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Palacio_de_Hielo_(Madrid_-_2022).jpg"
+  },
+  "tour-del-estadio-metropolitano": {
+   "src": "photos/places-tour-del-estadio-metropolitano.webp",
+   "w": 720,
+   "h": 481,
+   "title": "File:Estadio Metropolitano de Madrid.jpg",
+   "artist": "Fabian Vidal",
+   "license": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Estadio_Metropolitano_de_Madrid.jpg"
+  },
+  "museo-nacional-de-ciencias-naturales": {
+   "src": "photos/places-museo-nacional-de-ciencias-naturales.webp",
+   "w": 720,
+   "h": 480,
+   "title": "File:Réplica del Diplodocus Carnegii del MNCN.jpg",
+   "artist": "ProyectowikiMNCN",
+   "license": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:R%C3%A9plica_del_Diplodocus_Carnegii_del_MNCN.jpg"
+  },
+  "museo-del-ferrocarril": {
+   "src": "photos/places-museo-del-ferrocarril.webp",
+   "w": 720,
+   "h": 540,
+   "title": "File:Estación Madrid-Delicias, Museo del Ferrocarril, Madrid, España, Spain.jpg",
+   "artist": "CARLOS TEIXIDOR CADENAS",
+   "license": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Estaci%C3%B3n_Madrid-Delicias,_Museo_del_Ferrocarril,_Madrid,_Espa%C3%B1a,_Spain.jpg"
+  },
+  "museo-naval": {
+   "src": "photos/places-museo-naval.webp",
+   "w": 720,
+   "h": 482,
+   "title": "File:MADRID A.V.U. PASEO DEL PRADO-JARDINES - panoramio (6).jpg",
+   "artist": "Concepcion AMAT ORTA…",
+   "license": "CC BY 3.0",
+   "page": "https://commons.wikimedia.org/wiki/File:MADRID_A.V.U._PASEO_DEL_PRADO-JARDINES_-_panoramio_(6).jpg"
+  },
+  "museo-de-america": {
+   "src": "photos/places-museo-de-america.webp",
+   "w": 720,
+   "h": 559,
+   "title": "File:Museo de América (Madrid) 01.jpg",
+   "artist": "Luis García (Zaqarbal)",
+   "license": "CC BY-SA 3.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Museo_de_Am%C3%A9rica_(Madrid)_01.jpg"
+  },
+  "museo-nacional-de-antropologia": {
+   "src": "photos/places-museo-nacional-de-antropologia.webp",
+   "w": 720,
+   "h": 540,
+   "title": "File:Museo Nacional de Antropología (España) 01.jpg",
+   "artist": "Luis García (Zaqarbal)",
+   "license": "CC BY-SA 3.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Museo_Nacional_de_Antropolog%C3%ADa_(Espa%C3%B1a)_01.jpg"
+  },
+  "museo-del-aire": {
+   "src": "photos/places-museo-del-aire.webp",
+   "w": 720,
+   "h": 540,
+   "title": "File:AISA I-115 \"GARRAPATA\" E.9.JPG",
+   "artist": "Smolik",
+   "license": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:AISA_I-115_%22GARRAPATA%22_E.9.JPG"
+  },
+  "museo-geominero": {
+   "src": "photos/places-museo-geominero.webp",
+   "w": 720,
+   "h": 540,
+   "title": "File:Museo Geominero, Madrid, España, 2016 03.jpg",
+   "artist": "Benjamín Núñez González",
+   "license": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Museo_Geominero,_Madrid,_Espa%C3%B1a,_2016_03.jpg"
+  },
+  "museo-de-san-isidro": {
+   "src": "photos/places-museo-de-san-isidro.webp",
+   "w": 720,
+   "h": 480,
+   "title": "File:Museo de los Origenes - Casa de San Isidro.JPG",
+   "artist": "Tamorlan",
+   "license": "CC BY 3.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Museo_de_los_Origenes_-_Casa_de_San_Isidro.JPG"
+  },
+  "museo-casa-de-la-moneda": {
+   "src": "photos/places-museo-casa-de-la-moneda.webp",
+   "w": 720,
+   "h": 469,
+   "title": "File:Espirales (52391152050).jpg",
+   "artist": "Ángel M. Felicísimo from Mérida, España",
+   "license": "CC BY 2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Espirales_(52391152050).jpg"
+  },
+  "real-observatorio-de-madrid": {
+   "src": "photos/places-real-observatorio-de-madrid.webp",
+   "w": 720,
+   "h": 540,
+   "title": "File:Observatoriomadridfrente.jpg",
+   "artist": "Fanattiq",
+   "license": "CC BY 3.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Observatoriomadridfrente.jpg"
+  },
+  "mirador-de-centrocentro": {
+   "src": "photos/places-mirador-de-centrocentro.webp",
+   "w": 720,
+   "h": 483,
+   "title": "File:Architecture-building-palace-city-urban-cityscape-955300.jpg",
+   "artist": "Unknown authorUnknown author",
+   "license": "CC0",
+   "page": "https://commons.wikimedia.org/wiki/File:Architecture-building-palace-city-urban-cityscape-955300.jpg"
+  },
+  "parque-quinta-de-los-molinos": {
+   "src": "photos/places-parque-quinta-de-los-molinos.webp",
+   "w": 720,
+   "h": 480,
+   "title": "File:Abierta al público la Quinta de los Molinos 01.jpg",
+   "artist": "Diario de Madrid",
+   "license": "CC BY 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Abierta_al_p%C3%BAblico_la_Quinta_de_los_Molinos_01.jpg"
+  },
+  "parque-enrique-tierno-galvan": {
+   "src": "photos/places-parque-enrique-tierno-galvan.webp",
+   "w": 720,
+   "h": 480,
+   "title": "File:Acceso Oeste del Parque Tierno Galvan 3.jpg",
+   "artist": "Javier Perez Montes",
+   "license": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Acceso_Oeste_del_Parque_Tierno_Galvan_3.jpg"
+  },
+  "campo-del-moro": {
+   "src": "photos/places-campo-del-moro.webp",
+   "w": 720,
+   "h": 540,
+   "title": "File:Campo del Moro (Madrid) 03.jpg",
+   "artist": "Abel Pardo López from Spain",
+   "license": "CC BY 2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Campo_del_Moro_(Madrid)_03.jpg"
+  },
+  "jardines-de-sabatini": {
+   "src": "photos/places-jardines-de-sabatini.webp",
+   "w": 720,
+   "h": 540,
+   "title": "File:-i---i- (22392477822).jpg",
+   "artist": "Sergei Gussev",
+   "license": "CC BY 2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:-i---i-_(22392477822).jpg"
+  },
+  "parque-de-la-dehesa-de-la-villa": {
+   "src": "photos/places-parque-de-la-dehesa-de-la-villa.webp",
+   "w": 720,
+   "h": 540,
+   "title": "File:Dehesa de la Villa.jpg",
+   "artist": "Cristianrodenas",
+   "license": "CC BY-SA 3.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Dehesa_de_la_Villa.jpg"
+  },
+  "parque-forestal-de-valdebebas": {
+   "src": "photos/places-parque-forestal-de-valdebebas.webp",
+   "w": 720,
+   "h": 405,
+   "title": "File:La cabaña, Parque Forestal de Valdebebas 2015.03.26.jpg",
+   "artist": "Gonchu",
+   "license": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:La_caba%C3%B1a,_Parque_Forestal_de_Valdebebas_2015.03.26.jpg"
+  },
+  "parque-de-berlin": {
+   "src": "photos/places-parque-de-berlin.webp",
+   "w": 720,
+   "h": 480,
+   "title": "File:Arbol Mimosa (1) (11983502183).jpg",
+   "artist": "someone10x",
+   "license": "CC BY 2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Arbol_Mimosa_(1)_(11983502183).jpg"
+  },
+  "parque-juan-pablo-ii": {
+   "src": "photos/places-parque-juan-pablo-ii.webp",
+   "w": 720,
+   "h": 540,
+   "title": "File:Madrid Juan Pablo II-El palmeral.jpg",
+   "artist": "Xauxa Håkan Svensson",
+   "license": "CC BY-SA 3.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Madrid_Juan_Pablo_II-El_palmeral.jpg"
+  },
+  "parque-de-pradolongo": {
+   "src": "photos/places-parque-de-pradolongo.webp",
+   "w": 720,
+   "h": 478,
+   "title": "File:Arroyo-pradolongo.jpg",
+   "artist": "Miguelius",
+   "license": "CC BY 3.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Arroyo-pradolongo.jpg"
+  },
+  "parque-lineal-del-manzanares": {
+   "src": "photos/places-parque-lineal-del-manzanares.webp",
+   "w": 720,
+   "h": 480,
+   "title": "File:Atardecer en el parque lineal del manzanares (4).jpg",
+   "artist": "Olga Berrios from Madrid, España",
+   "license": "CC BY 2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Atardecer_en_el_parque_lineal_del_manzanares_(4).jpg"
+  },
+  "quinta-de-la-fuente-del-berro": {
+   "src": "photos/places-quinta-de-la-fuente-del-berro.webp",
+   "w": 720,
+   "h": 540,
+   "title": "File:Canal de agua Parque Quinta de la Fuente del Berro.jpg",
+   "artist": "LMF92",
+   "license": "CC BY 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Canal_de_agua_Parque_Quinta_de_la_Fuente_del_Berro.jpg"
+  },
+  "la-mallorquina": {
+   "src": "photos/places-la-mallorquina.webp",
+   "w": 720,
+   "h": 540,
+   "title": "File:123 Pastisseria La Mallorquina, Puerta del Sol 8 (Madrid).jpg",
+   "artist": "Enric",
+   "license": "CC BY 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:123_Pastisseria_La_Mallorquina,_Puerta_del_Sol_8_(Madrid).jpg"
+  },
+  "taberna-la-bola": {
+   "src": "photos/places-taberna-la-bola.webp",
+   "w": 720,
+   "h": 540,
+   "title": "File:Cocido - panoramio.jpg",
+   "artist": "DJuan",
+   "license": "CC BY 3.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Cocido_-_panoramio.jpg"
+  },
+  "cafe-de-oriente": {
+   "src": "photos/places-cafe-de-oriente.webp",
+   "w": 720,
+   "h": 540,
+   "title": "File:Café de Oriente.jpg",
+   "artist": "DIMSFIKAS",
+   "license": "CC BY-SA 3.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Caf%C3%A9_de_Oriente.jpg"
+  },
+  "casa-mingo": {
+   "src": "photos/places-casa-mingo.webp",
+   "w": 720,
+   "h": 480,
+   "title": "File:Casa Mingo-2009.jpg",
+   "artist": "Tamorlan",
+   "license": "CC BY 3.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Casa_Mingo-2009.jpg"
+  },
+  "casa-alberto": {
+   "src": "photos/places-casa-alberto.webp",
+   "w": 720,
+   "h": 565,
+   "title": "File:Casa Alberto - panoramio.jpg",
+   "artist": "Carlos Ramón Bonilla…",
+   "license": "CC BY-SA 3.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Casa_Alberto_-_panoramio.jpg"
+  },
+  "cafe-comercial": {
+   "src": "photos/places-cafe-comercial.webp",
+   "w": 720,
+   "h": 415,
+   "title": "File:Café Comercial (Madrid) 01.jpg",
+   "artist": "Luis García (Zaqarbal)",
+   "license": "CC BY-SA 3.0 es",
+   "page": "https://commons.wikimedia.org/wiki/File:Caf%C3%A9_Comercial_(Madrid)_01.jpg"
+  },
+  "mercado-de-san-anton": {
+   "src": "photos/places-mercado-de-san-anton.webp",
+   "w": 720,
+   "h": 480,
+   "title": "File:Calle de AugustoFigueroa, desde la calle Barbieri, Mercado de San Antón.jpg",
+   "artist": "Malopez 21",
+   "license": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Calle_de_AugustoFigueroa,_desde_la_calle_Barbieri,_Mercado_de_San_Ant%C3%B3n.jpg"
+  },
+  "mercado-de-barcelo": {
+   "src": "photos/places-mercado-de-barcelo.webp",
+   "w": 720,
+   "h": 497,
+   "title": "File:Mercado-Barcelo-151217.jpg",
+   "artist": "FDV",
+   "license": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Mercado-Barcelo-151217.jpg"
+  },
+  "mercado-de-vallehermoso": {
+   "src": "photos/places-mercado-de-vallehermoso.webp",
+   "w": 720,
+   "h": 480,
+   "title": "File:Mercado de Vallehermoso - Madrid.jpg",
+   "artist": "Tamorlan",
+   "license": "CC BY-SA 3.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Mercado_de_Vallehermoso_-_Madrid.jpg"
+  },
+  "mercado-de-la-paz": {
+   "src": "photos/places-mercado-de-la-paz.webp",
+   "w": 720,
+   "h": 478,
+   "title": "File:El Pleno aprueba medidas fiscales para apoyar los mercados municipales (01).jpg",
+   "artist": "Diario de Madrid",
+   "license": "CC BY 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:El_Pleno_aprueba_medidas_fiscales_para_apoyar_los_mercados_municipales_(01).jpg"
+  },
+  "mercado-de-chamartin": {
+   "src": "photos/places-mercado-de-chamartin.webp",
+   "w": 720,
+   "h": 540,
+   "title": "File:Mercado de Chamartín, Madrid.jpg",
+   "artist": "Totemkin",
+   "license": "CC BY-SA 3.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Mercado_de_Chamart%C3%ADn,_Madrid.jpg"
+  },
+  "mercado-de-maravillas": {
+   "src": "photos/places-mercado-de-maravillas.webp",
+   "w": 720,
+   "h": 540,
+   "title": "File:Interior del Mercado de Maravillas.jpg",
+   "artist": "Vilacor",
+   "license": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Interior_del_Mercado_de_Maravillas.jpg"
+  },
+  "mercado-de-la-cebada": {
+   "src": "photos/places-mercado-de-la-cebada.webp",
+   "w": 720,
+   "h": 477,
+   "title": "File:Mercado de la Cebada Madrid 2017 1.jpg",
+   "artist": "Steven Lek",
+   "license": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Mercado_de_la_Cebada_Madrid_2017_1.jpg"
   }
  }
 }
