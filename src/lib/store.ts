@@ -125,8 +125,41 @@ export async function sharePlan(it: Itinerary): Promise<Itinerary> {
   return saved
 }
 
-export async function getShared(s: string): Promise<Itinerary | null> {
-  if (!supabase) return read<Record<string, Itinerary>>('pz_public', {})[s] ?? null
+/** Recupera un plan guardado por id (para abrirlo desde otro navegador con la misma cuenta). */
+export async function getSaved(id: string): Promise<Itinerary | null> {
+  if (!current) return null
+  if (!supabase) return read<Itinerary[]>(demoKey(), []).find((s) => s.id === id) ?? null
+  const { data } = await supabase.from('itineraries').select('*, preferences(*), itinerary_items(*)').eq('id', id).maybeSingle()
+  return data ? fromRow(data) : null
+}
+
+// ---------- enlace para compartir ----------
+// Sin backend (GitHub Pages), el plan viaja comprimido en el propio enlace (#...), así se abre en cualquier móvil.
+type Packed = { t: string; d: Preferences['day']; b: number; s: [string, Day, string, string, number, string][] }
+const b64 = (t: string) => btoa(String.fromCharCode(...new TextEncoder().encode(t))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '')
+const unb64 = (t: string) => new TextDecoder().decode(Uint8Array.from(atob(t.replace(/-/g, '+').replace(/_/g, '/')), (c) => c.charCodeAt(0)))
+export function packPlan(it: Itinerary) {
+  const p: Packed = { t: it.title, d: it.prefs.day, b: it.prefs.budget, s: it.slots.map((x) => [x.place_id, x.day, x.start_time, x.end_time, x.est_cost, x.reason]) }
+  return b64(JSON.stringify(p))
+}
+export function unpackPlan(hash: string, shareSlug: string): Itinerary | null {
+  try {
+    const p = JSON.parse(unb64(hash)) as Packed
+    const slots: Slot[] = p.s.map(([place_id, day, start, end, cost, reason], i) => ({
+      id: `s${i}`, day, place_id, start_time: start, end_time: end, title: '', reason, est_cost: cost, duration_min: toMin(end) - toMin(start),
+      verify_note: 'Estimación: confirma horario y precio antes de ir.', travel_min_from_prev: null,
+    }))
+    const prefs: Preferences = { day: p.d, companions: null, budget: p.b, pace: 'equilibrado', interests: [], mood: '', constraints: {} }
+    return { id: shareSlug, title: p.t, prefs, slots, created_at: new Date().toISOString(), status: 'saved', share_slug: shareSlug, is_public: true, source: 'local' }
+  } catch { return null }
+}
+export function shareUrl(it: Itinerary) {
+  const base = `${window.location.origin}${import.meta.env.BASE_URL.replace(/\/?$/, '/')}p/${it.share_slug}`
+  return supabase ? base : `${base}#${packPlan(it)}`
+}
+
+export async function getShared(s: string, hash = ''): Promise<Itinerary | null> {
+  if (!supabase) return (hash ? unpackPlan(hash, s) : null) ?? read<Record<string, Itinerary>>('pz_public', {})[s] ?? null
   const { data } = await supabase.from('itineraries').select('*, preferences(*), itinerary_items(*)').eq('share_slug', s).eq('is_public', true).maybeSingle()
   return data ? fromRow(data) : null
 }

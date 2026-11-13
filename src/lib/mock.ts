@@ -24,6 +24,6 @@ export function mockItinerary(): Itinerary {
   })
   return {
     id: 'demo', title: 'Sábado tranquilo en pareja', created_at: new Date().toISOString(), status: 'draft', share_slug: null, is_public: false, source: 'mock', slots,
-    prefs: { day: 'sat', companions: 'pareja', budget: 60, pace: 'tranquilo', interests: ['cultura', 'naturaleza'], mood: 'Quiero desconectar y acabar viendo el atardecer', constraints: {} },
+    prefs: { day: 'sat', companions: 'pareja', budget: 60, pace: 'equilibrado', interests: ['cultura', 'naturaleza'], mood: 'Quiero desconectar y acabar viendo el atardecer', constraints: {} },
   }
 }

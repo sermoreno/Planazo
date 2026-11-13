@@ -116,7 +116,7 @@ export function buildDay(prefs: Preferences, day: Day, opts: BuildOpts = {}): Sl
     const remaining = budget - spent
     const isFood = (p: Place) => FOOD.has(p.category)
     const pick = (strict: boolean, maxTravel: number) =>
-      PLACES.filter((p) => !used.has(p.id) && (!strict || !avoid.has(p.neighborhood)))
+      PLACES.filter((p) => !used.has(p.id) && (!strict || !avoid.has(p.neighborhood)) && (!prefs.constraints.rain || p.indoor))
         .filter((p) => (a.kind === 'meal' ? isFood(p) && p.avg_cost_eur > 0 && p.category !== 'cafetería' : true))
         .filter((p) => costFor(p, prefs) <= Math.max(remaining, 0))
         .map((p) => {
