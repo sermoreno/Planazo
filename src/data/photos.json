@@ -1,0 +1,384 @@
+{
+ "hero": {
+  "granvia": {
+   "src": "photos/hero-granvia.webp",
+   "w": 1920,
+   "h": 1278,
+   "title": "File:View of Edificio España and Gran Vía at night.jpg",
+   "artist": "Tim Adams",
+   "license": "CC BY 3.0",
+   "page": "https://commons.wikimedia.org/wiki/File:View_of_Edificio_Espa%C3%B1a_and_Gran_V%C3%ADa_at_night.jpg"
+  },
+  "debod": {
+   "src": "photos/hero-debod.webp",
+   "w": 1920,
+   "h": 1440,
+   "title": "File:Templo de Debod al anochecer - Madrid 06.jpg",
+   "artist": "Javier Perez Montes",
+   "license": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Templo_de_Debod_al_anochecer_-_Madrid_06.jpg"
+  },
+  "retiro": {
+   "src": "photos/hero-retiro.webp",
+   "w": 1920,
+   "h": 1152,
+   "title": "File:Monumento a Alfonso XII de España en los Jardines del Retiro - 04.jpg",
+   "artist": "Carlos Delgado",
+   "license": "CC BY-SA 3.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Monumento_a_Alfonso_XII_de_Espa%C3%B1a_en_los_Jardines_del_Retiro_-_04.jpg"
+  },
+  "plazamayor": {
+   "src": "photos/hero-plazamayor.webp",
+   "w": 1920,
+   "h": 1440,
+   "title": "File:Plaza Mayor de Madrid - 01.jpg",
+   "artist": "Carlos Delgado",
+   "license": "CC BY-SA 3.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Plaza_Mayor_de_Madrid_-_01.jpg"
+  },
+  "cristal": {
+   "src": "photos/hero-cristal.webp",
+   "w": 1920,
+   "h": 1280,
+   "title": "File:Palacio de Cristal - 02.jpg",
+   "artist": "Carlos Delgado",
+   "license": "CC BY-SA 3.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Palacio_de_Cristal_-_02.jpg"
+  },
+  "cibeles": {
+   "src": "photos/hero-cibeles.webp",
+   "w": 1920,
+   "h": 1171,
+   "title": "File:Palacio de Comunicaciones, Plaza de Cibeles, Madrid, España, 2017-05-18, DD 32-34 HDR.jpg",
+   "artist": "Diego Delso",
+   "license": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Palacio_de_Comunicaciones,_Plaza_de_Cibeles,_Madrid,_Espa%C3%B1a,_2017-05-18,_DD_32-34_HDR.jpg"
+  }
+ },
+ "places": {
+  "parque-del-retiro": {
+   "src": "photos/places-parque-del-retiro.webp",
+   "w": 720,
+   "h": 471,
+   "title": "File:Paseo - Parque del Buen Retiro (2026-08-15)-2.jpg",
+   "artist": "Sneeuwvlakte",
+   "license": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Paseo_-_Parque_del_Buen_Retiro_(2026-08-15)-2.jpg"
+  },
+  "palacio-de-cristal": {
+   "src": "photos/places-palacio-de-cristal.webp",
+   "w": 720,
+   "h": 480,
+   "title": "File:Palacio de Cristal, Parque del Retiro, Madrid, España, 2017-05-18, DD 24.jpg",
+   "artist": "Diego Delso",
+   "license": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Palacio_de_Cristal,_Parque_del_Retiro,_Madrid,_Espa%C3%B1a,_2017-05-18,_DD_24.jpg"
+  },
+  "templo-de-debod": {
+   "src": "photos/places-templo-de-debod.webp",
+   "w": 720,
+   "h": 480,
+   "title": "File:Templo de Debod, Madrid, España, 2023-01-03, DD 89-91 HDR.jpg",
+   "artist": "Diego Delso",
+   "license": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Templo_de_Debod,_Madrid,_Espa%C3%B1a,_2023-01-03,_DD_89-91_HDR.jpg"
+  },
+  "mercado-de-san-miguel": {
+   "src": "photos/places-mercado-de-san-miguel.webp",
+   "w": 720,
+   "h": 540,
+   "title": "File:Mercado de San Miguel - Madrid.png",
+   "artist": "RL0919",
+   "license": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Mercado_de_San_Miguel_-_Madrid.png"
+  },
+  "azotea-del-circulo-de-bellas-artes": {
+   "src": "photos/places-azotea-del-circulo-de-bellas-artes.webp",
+   "w": 720,
+   "h": 540,
+   "title": "File:Madrid - Círculo de Bellas Artes, Azotea 07.jpg",
+   "artist": "Zarateman",
+   "license": "CC0",
+   "page": "https://commons.wikimedia.org/wiki/File:Madrid_-_C%C3%ADrculo_de_Bellas_Artes,_Azotea_07.jpg"
+  },
+  "matadero-madrid": {
+   "src": "photos/places-matadero-madrid.webp",
+   "w": 720,
+   "h": 478,
+   "title": "File:Matadero y puente de Matadero, Arganzuela, vista desde Madrid Río 2.jpg",
+   "artist": "Malopez 21",
+   "license": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Matadero_y_puente_de_Matadero,_Arganzuela,_vista_desde_Madrid_R%C3%ADo_2.jpg"
+  },
+  "parque-el-capricho": {
+   "src": "photos/places-parque-el-capricho.webp",
+   "w": 720,
+   "h": 481,
+   "title": "File:Ardilla - Parque de El Capricho - Madrid 02.jpg",
+   "artist": "Javier Perez Montes",
+   "license": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Ardilla_-_Parque_de_El_Capricho_-_Madrid_02.jpg"
+  },
+  "mercado-de-anton-martin": {
+   "src": "photos/places-mercado-de-anton-martin.webp",
+   "w": 720,
+   "h": 480,
+   "title": "File:Mercado de Antón Martín, fachada calle Santa Isabel.JPG",
+   "artist": "Malopez 21",
+   "license": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Mercado_de_Ant%C3%B3n_Mart%C3%ADn,_fachada_calle_Santa_Isabel.JPG"
+  },
+  "caixaforum-madrid": {
+   "src": "photos/places-caixaforum-madrid.webp",
+   "w": 720,
+   "h": 576,
+   "title": "File:Caixaforum Madrid 2024.jpg",
+   "artist": "Fernando",
+   "license": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Caixaforum_Madrid_2024.jpg"
+  },
+  "real-jardin-botanico": {
+   "src": "photos/places-real-jardin-botanico.webp",
+   "w": 720,
+   "h": 398,
+   "title": "File:Real Jardín Botánico, Madrid, España, 2017-05-18, DD 38.jpg",
+   "artist": "Diego Delso",
+   "license": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Real_Jard%C3%ADn_Bot%C3%A1nico,_Madrid,_Espa%C3%B1a,_2017-05-18,_DD_38.jpg"
+  },
+  "casa-labra": {
+   "src": "photos/places-casa-labra.webp",
+   "w": 720,
+   "h": 480,
+   "title": "File:Casa Labra-2009.jpg",
+   "artist": "Tamorlan",
+   "license": "CC BY 3.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Casa_Labra-2009.jpg"
+  },
+  "mercado-de-san-fernando": {
+   "src": "photos/places-mercado-de-san-fernando.webp",
+   "w": 720,
+   "h": 540,
+   "title": "File:Mercado de San Fernando (Madrid) 02.jpg",
+   "artist": "Luis García (Zaqarbal)",
+   "license": "CC BY-SA 3.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Mercado_de_San_Fernando_(Madrid)_02.jpg"
+  },
+  "plaza-mayor": {
+   "src": "photos/places-plaza-mayor.webp",
+   "w": 720,
+   "h": 540,
+   "title": "File:Plaza Mayor de Madrid - 01.jpg",
+   "artist": "Carlos Delgado",
+   "license": "CC BY-SA 3.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Plaza_Mayor_de_Madrid_-_01.jpg"
+  },
+  "museo-reina-sofia": {
+   "src": "photos/places-museo-reina-sofia.webp",
+   "w": 720,
+   "h": 591,
+   "title": "File:Lunar Bird by Joan Miró in the Patio of the Reina Sofía National Art Center Museum.jpg",
+   "artist": "Ввласенко",
+   "license": "CC BY-SA 3.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Lunar_Bird_by_Joan_Mir%C3%B3_in_the_Patio_of_the_Reina_Sof%C3%ADa_National_Art_Center_Museum.jpg"
+  },
+  "chocolateria-san-gines": {
+   "src": "photos/places-chocolateria-san-gines.webp",
+   "w": 720,
+   "h": 540,
+   "title": "File:Inside the Chocolatería San Ginés in Madrid, Spain.JPG",
+   "artist": "David Adam Kess",
+   "license": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Inside_the_Chocolater%C3%ADa_San_Gin%C3%A9s_in_Madrid,_Spain.JPG"
+  },
+  "madrid-rio": {
+   "src": "photos/places-madrid-rio.webp",
+   "w": 720,
+   "h": 481,
+   "title": "File:Manzanares - Soto de las Juntas - Parque Regional del Sureste - Madrid 01.jpg",
+   "artist": "Javier Perez Montes",
+   "license": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Manzanares_-_Soto_de_las_Juntas_-_Parque_Regional_del_Sureste_-_Madrid_01.jpg"
+  },
+  "lago-de-la-casa-de-campo": {
+   "src": "photos/places-lago-de-la-casa-de-campo.webp",
+   "w": 720,
+   "h": 540,
+   "title": "File:Vista parcial del Lago de la Casa de Campo, Madrid, España.jpg",
+   "artist": "siestecita",
+   "license": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Vista_parcial_del_Lago_de_la_Casa_de_Campo,_Madrid,_Espa%C3%B1a.jpg"
+  },
+  "rosaleda-del-parque-del-oeste": {
+   "src": "photos/places-rosaleda-del-parque-del-oeste.webp",
+   "w": 720,
+   "h": 480,
+   "title": "File:Rosaleda del Parque del Oeste - Madrid 04.jpg",
+   "artist": "Javier Perez Montes",
+   "license": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Rosaleda_del_Parque_del_Oeste_-_Madrid_04.jpg"
+  },
+  "palacio-real": {
+   "src": "photos/places-palacio-real.webp",
+   "w": 720,
+   "h": 480,
+   "title": "File:Palacio Real de Madrid - 13.jpg",
+   "artist": "Carlos Delgado",
+   "license": "CC BY-SA 3.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Palacio_Real_de_Madrid_-_13.jpg"
+  },
+  "museo-sorolla": {
+   "src": "photos/places-museo-sorolla.webp",
+   "w": 720,
+   "h": 497,
+   "title": "File:(Sorolla Museum) - Garçon sur le rivage Valence été 1904 - Joaquín Sorolla.jpg",
+   "artist": "Didier Descouens",
+   "license": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:(Sorolla_Museum)_-_Gar%C3%A7on_sur_le_rivage_Valence_%C3%A9t%C3%A9_1904_-_Joaqu%C3%ADn_Sorolla.jpg"
+  },
+  "museo-lazaro-galdiano": {
+   "src": "photos/places-museo-lazaro-galdiano.webp",
+   "w": 720,
+   "h": 480,
+   "title": "File:Museo Lázaro Galdiano (Madrid) 05.jpg",
+   "artist": "Luis García (Zaqarbal)",
+   "license": "CC BY-SA 3.0 es",
+   "page": "https://commons.wikimedia.org/wiki/File:Museo_L%C3%A1zaro_Galdiano_(Madrid)_05.jpg"
+  },
+  "faro-de-moncloa": {
+   "src": "photos/places-faro-de-moncloa.webp",
+   "w": 720,
+   "h": 540,
+   "title": "File:Faro de la Moncloa - 04.jpg",
+   "artist": "Carlos Delgado",
+   "license": "CC BY-SA 3.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Faro_de_la_Moncloa_-_04.jpg"
+  },
+  "el-rastro": {
+   "src": "photos/places-el-rastro.webp",
+   "w": 720,
+   "h": 480,
+   "title": "File:Rastro - Ribera de Curtidores - Madrid 01.jpg",
+   "artist": "Javier Perez Montes",
+   "license": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Rastro_-_Ribera_de_Curtidores_-_Madrid_01.jpg"
+  },
+  "mercado-de-motores": {
+   "src": "photos/places-mercado-de-motores.webp",
+   "w": 720,
+   "h": 540,
+   "title": "File:Railway Museum, Museo del Ferrocarril in Madrid, Spain pic aa.181 Photography by David Adam Kess.jpg",
+   "artist": "David Adam Kess",
+   "license": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Railway_Museum,_Museo_del_Ferrocarril_in_Madrid,_Spain_pic_aa.181_Photography_by_David_Adam_Kess.jpg"
+  },
+  "casa-lucio": {
+   "src": "photos/places-casa-lucio.webp",
+   "w": 720,
+   "h": 480,
+   "title": "File:Casa Lucio-2009.jpg",
+   "artist": "Tamorlan",
+   "license": "CC BY 3.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Casa_Lucio-2009.jpg"
+  },
+  "barcas-del-estanque-del-retiro": {
+   "src": "photos/places-barcas-del-estanque-del-retiro.webp",
+   "w": 720,
+   "h": 481,
+   "title": "File:Barcas - Estanque del Retiro - Madrid 01.jpg",
+   "artist": "Javier Perez Montes",
+   "license": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Barcas_-_Estanque_del_Retiro_-_Madrid_01.jpg"
+  },
+  "cerro-del-tio-pio": {
+   "src": "photos/places-cerro-del-tio-pio.webp",
+   "w": 720,
+   "h": 481,
+   "title": "File:Parque de las Siete Tetas (Cerro del Tío Pío, Madrid) 2021-01-12 - 50829860997.jpg",
+   "artist": "Nicolas Vigier",
+   "license": "CC0",
+   "page": "https://commons.wikimedia.org/wiki/File:Parque_de_las_Siete_Tetas_(Cerro_del_T%C3%ADo_P%C3%ADo,_Madrid)_2021-01-12_-_50829860997.jpg"
+  },
+  "sobrino-de-botin": {
+   "src": "photos/places-sobrino-de-botin.webp",
+   "w": 720,
+   "h": 520,
+   "title": "File:2014 - Sobrino de Botín (Casa Botín) Restaurant, Madrid, Spain ( Ank Kumar ) 05.jpg",
+   "artist": "Ank Kumar",
+   "license": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:2014_-_Sobrino_de_Bot%C3%ADn_(Casa_Bot%C3%ADn)_Restaurant,_Madrid,_Spain_(_Ank_Kumar_)_05.jpg"
+  },
+  "bodega-de-la-ardosa": {
+   "src": "photos/places-bodega-de-la-ardosa.webp",
+   "w": 720,
+   "h": 566,
+   "title": "File:Bodega de La Ardosa (Colón 13, Madrid) 01.jpg",
+   "artist": "Luis García (Zaqarbal)",
+   "license": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Bodega_de_La_Ardosa_(Col%C3%B3n_13,_Madrid)_01.jpg"
+  },
+  "corral-de-la-moreria": {
+   "src": "photos/places-corral-de-la-moreria.webp",
+   "w": 720,
+   "h": 540,
+   "title": "File:CORRAL DE LA MORERIA - MADRID - panoramio.jpg",
+   "artist": "Carlos Ramón Bonilla…",
+   "license": "CC BY-SA 3.0",
+   "page": "https://commons.wikimedia.org/wiki/File:CORRAL_DE_LA_MORERIA_-_MADRID_-_panoramio.jpg"
+  },
+  "parque-juan-carlos-i": {
+   "src": "photos/places-parque-juan-carlos-i.webp",
+   "w": 720,
+   "h": 540,
+   "title": "File:Estufa fría en el Parque Juan Carlos I.jpg",
+   "artist": "Malopez 21",
+   "license": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Estufa_fr%C3%ADa_en_el_Parque_Juan_Carlos_I.jpg"
+  },
+  "tour-del-estadio-santiago-bernabeu": {
+   "src": "photos/places-tour-del-estadio-santiago-bernabeu.webp",
+   "w": 720,
+   "h": 478,
+   "title": "File:Santiagobernabeupanoramav45.JPG",
+   "artist": "لا روسا",
+   "license": "CC BY-SA 3.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Santiagobernabeupanoramav45.JPG"
+  },
+  "museo-thyssen-bornemisza": {
+   "src": "photos/places-museo-thyssen-bornemisza.webp",
+   "w": 720,
+   "h": 484,
+   "title": "File:Museo Thyssen-Bornemisza (Madrid) 10.jpg",
+   "artist": "Luis García (Zaqarbal)",
+   "license": "CC BY-SA 3.0 es",
+   "page": "https://commons.wikimedia.org/wiki/File:Museo_Thyssen-Bornemisza_(Madrid)_10.jpg"
+  },
+  "museo-arqueologico-nacional": {
+   "src": "photos/places-museo-arqueologico-nacional.webp",
+   "w": 720,
+   "h": 480,
+   "title": "File:Museo Arqueologico Nacional - Madrid 02.jpg",
+   "artist": "Javier Pérez Montes",
+   "license": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Museo_Arqueologico_Nacional_-_Madrid_02.jpg"
+  },
+  "cafe-central": {
+   "src": "photos/places-cafe-central.webp",
+   "w": 720,
+   "h": 481,
+   "title": "File:Cafe Central - Plaza del Angel - Madrid 01.jpg",
+   "artist": "Javier Perez Montes",
+   "license": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Cafe_Central_-_Plaza_del_Angel_-_Madrid_01.jpg"
+  },
+  "museo-del-prado": {
+   "src": "photos/places-museo-del-prado.webp",
+   "w": 720,
+   "h": 540,
+   "title": "File:Museo del Prado. Trasera edificio Juan de Villanueva.jpg",
+   "artist": "losmininos",
+   "license": "CC BY-SA 2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Museo_del_Prado._Trasera_edificio_Juan_de_Villanueva.jpg"
+  }
+ }
+}

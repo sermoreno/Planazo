@@ -1,0 +1,22 @@
+@import '@fontsource/plus-jakarta-sans/400.css';
+@import '@fontsource/plus-jakarta-sans/600.css';
+@import '@fontsource/plus-jakarta-sans/700.css';
+@import '@fontsource/plus-jakarta-sans/800.css';
+@import 'leaflet/dist/leaflet.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root { min-height: 100%; }
+body { @apply bg-crema text-noche font-sans antialiased; }
+:focus-visible { outline: 3px solid #1E2A4A; outline-offset: 2px; }
+.leaflet-container { font-family: inherit; background: #EFEAE3; background-image: radial-gradient(#1E2A4A14 1px, transparent 1px); background-size: 18px 18px; }
+.pz-marker { background: #FF6B4A; color: #1E2A4A; border: 3px solid #fff; border-radius: 9999px; width: 32px; height: 32px; display: grid; place-items: center; font-weight: 800; font-size: 14px; box-shadow: 0 2px 8px rgba(30,42,74,.35); transition: transform .15s ease; }
+.pz-marker.active { transform: scale(1.25); background: #1E2A4A; color: #fff; }
+.pz-pin { width: 30px; height: 30px; border-radius: 9999px; display: grid; place-items: center; border: 3px solid #fff; box-shadow: 0 2px 8px rgba(30,42,74,.35); transition: transform .15s ease; }
+.pz-pin.food { background: #FF6B4A; color: #1E2A4A; }
+.pz-pin.fun { background: #1E2A4A; color: #fff; }
+.pz-pin.active { transform: scale(1.3); }
+.pz-hub { width: 26px; height: 26px; border-radius: 6px; background: #fff; color: #C2410C; border: 2.5px solid #C2410C; font-weight: 800; font-size: 13px; display: grid; place-items: center; box-shadow: 0 2px 6px rgba(30,42,74,.3); }
+.leaflet-tooltip.pz-zone-label { background: rgba(255,255,255,.92); border: 0; border-radius: 9999px; box-shadow: 0 2px 8px rgba(30,42,74,.18); color: #1E2A4A; font-weight: 700; font-size: 11px; padding: 3px 8px; pointer-events: none; }
+.leaflet-tooltip.pz-zone-label::before { display: none; }
