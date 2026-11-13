@@ -14,6 +14,12 @@ Sin credenciales funciona en **modo demo** (datos en el navegador y planificador
 2. Pega `supabase/setup.sql` entero en el SQL Editor y pulsa Run (esquema, permisos y lugares). Para actualizar solo los lugares, vuelve a ejecutar `supabase/seed.sql` (es repetible).
    En Authentication → URL Configuration, añade la URL publicada a Site URL y Redirect URLs.
    La web publicada en GitHub Pages ya usa el proyecto configurado en `.github/workflows/deploy.yml`.
+3. Si el proyecto ya existía, ejecuta también `supabase/migrations/0003_auth.sql` (cuentas con contraseña: perfil protegido, borrar cuenta, límite gratuito corregido). Es repetible.
+
+### Cuentas y acceso
+- Email y contraseña (mín. 8 caracteres con letras y números), verificación por email, recuperación de contraseña, enlace mágico opcional, sesión persistente y cierre de sesión (`src/lib/auth.ts`).
+- Rutas públicas: portada, `/entrar`, `/registro`, `/recuperar`, `/restablecer`, `/creditos` y planes compartidos `/p/:slug`. El resto pide sesión (`RequireAuth`) y, tras entrar, vuelve a la página pedida.
+- En Supabase → Authentication: deja activado "Confirm email" y sube la longitud mínima de contraseña a 8. El correo incluido de Supabase solo envía a miembros del equipo del proyecto y con pocos envíos por hora: para usuarios reales configura un SMTP propio (Authentication → Emails → SMTP).
 3. Crea `.env.local` con:
 ```
 VITE_SUPABASE_URL=https://xxxx.supabase.co

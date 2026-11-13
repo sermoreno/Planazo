@@ -9,6 +9,11 @@ import Explore from '@/pages/Explore'
 import MyPlans from '@/pages/MyPlans'
 import SharedPlan from '@/pages/SharedPlan'
 import Account from '@/pages/Account'
+import Login from '@/pages/auth/Login'
+import Register from '@/pages/auth/Register'
+import ForgotPassword from '@/pages/auth/ForgotPassword'
+import ResetPassword from '@/pages/auth/ResetPassword'
+import { AuthEvents, RequireAuth } from '@/components/auth/RequireAuth'
 
 // La vista previa (Artifact) usa rutas en memoria; en producción, rutas limpias (/p/:share_slug).
 const Router = import.meta.env.VITE_PREVIEW ? MemoryRouter : BrowserRouter
@@ -17,15 +22,22 @@ export default function App() {
   return (
     <Router basename={import.meta.env.VITE_PREVIEW ? undefined : import.meta.env.BASE_URL.replace(/\/$/, '') || undefined}>
       <Header />
+      <AuthEvents />
       <Routes>
+        {/* Públicas: portada, acceso, créditos y planes compartidos por enlace */}
         <Route path="/" element={<Landing />} />
-        <Route path="/plan/nuevo" element={<NewPlan />} />
-        <Route path="/plan/:id" element={<PlanPage />} />
-        <Route path="/mis-planes" element={<MyPlans />} />
+        <Route path="/entrar" element={<Login />} />
+        <Route path="/registro" element={<Register />} />
+        <Route path="/recuperar" element={<ForgotPassword />} />
+        <Route path="/restablecer" element={<ResetPassword />} />
         <Route path="/p/:share_slug" element={<SharedPlan />} />
-        <Route path="/cuenta" element={<Account />} />
-        <Route path="/explorar" element={<Explore />} />
         <Route path="/creditos" element={<Credits />} />
+        {/* Privadas: piden sesión */}
+        <Route path="/plan/nuevo" element={<RequireAuth><NewPlan /></RequireAuth>} />
+        <Route path="/plan/:id" element={<RequireAuth><PlanPage /></RequireAuth>} />
+        <Route path="/explorar" element={<RequireAuth><Explore /></RequireAuth>} />
+        <Route path="/mis-planes" element={<RequireAuth><MyPlans /></RequireAuth>} />
+        <Route path="/cuenta" element={<RequireAuth><Account /></RequireAuth>} />
         <Route path="*" element={<EmptyState title="Página no encontrada" text="Vuelve al inicio y crea tu plan." cta={{ to: '/', label: 'Ir al inicio' }} />} />
       </Routes>
     </Router>

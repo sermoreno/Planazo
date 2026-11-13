@@ -14,5 +14,5 @@ sql.push(rows.map((r) => `(${[q(r.id),q(r.name),q(r.category),q(r.description),q
 writeFileSync(new URL('../supabase/seed.sql', import.meta.url), sql.join('\n') + '\n');
 // Un único archivo para pegar en el SQL Editor de Supabase: esquema + permisos + lugares.
 const mig = (f) => readFileSync(new URL('../supabase/migrations/' + f, import.meta.url), 'utf8');
-writeFileSync(new URL('../supabase/setup.sql', import.meta.url), ['-- Planazo · instalación completa en Supabase (pegar entero en SQL Editor y pulsar Run).', mig('0001_schema.sql'), mig('0002_grants.sql'), sql.join('\n'), ''].join('\n\n'));
+writeFileSync(new URL('../supabase/setup.sql', import.meta.url), ['-- Planazo · instalación completa en Supabase (pegar entero en SQL Editor y pulsar Run).', mig('0001_schema.sql'), mig('0002_grants.sql'), mig('0003_auth.sql'), sql.join('\n'), ''].join('\n\n'));
 console.log('OK', rows.length);

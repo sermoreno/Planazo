@@ -21,7 +21,7 @@ export function Header() {
     on(); window.addEventListener('scroll', on, { passive: true })
     return () => window.removeEventListener('scroll', on)
   }, [pathname])
-  const overPhoto = (pathname === '/' || pathname === '/plan/nuevo') && !scrolled
+  const overPhoto = ['/', '/plan/nuevo', '/entrar', '/registro', '/recuperar', '/restablecer'].includes(pathname) && !scrolled
   const link = ({ isActive }: { isActive: boolean }) =>
     cn('whitespace-nowrap rounded-full px-2 py-2 text-[13px] font-semibold transition sm:px-3 sm:text-sm', overPhoto ? 'text-white/90 hover:bg-white/10 hover:text-white' : isActive ? 'bg-noche/5 text-noche' : 'text-noche-600 hover:text-noche')
   return (
@@ -31,7 +31,7 @@ export function Header() {
         <nav className="flex items-center gap-0.5 sm:gap-1">
           <NavLink to="/explorar" className={link}>Explorar</NavLink>
           <NavLink to="/mis-planes" className={link}>Mis planes</NavLink>
-          <NavLink to="/cuenta" className={link}>{user ? 'Cuenta' : 'Entrar'}</NavLink>
+          {user ? <NavLink to="/cuenta" className={link}>Cuenta</NavLink> : <NavLink to="/entrar" className={link}>Entrar</NavLink>}
         </nav>
       </div>
     </header>
