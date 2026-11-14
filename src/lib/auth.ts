@@ -6,7 +6,11 @@
 import { useEffect, useState } from 'react'
 import { initialLinkError, supabase } from './supabase'
 
-export interface User { id: string; email: string; plan_tier: 'free' | 'premium'; display_name: string }
+/** Roles: 'user' por defecto, 'admin' y 'owner' (admin principal). Se asignan solo en el servidor. */
+export type Role = 'user' | 'admin' | 'owner'
+export interface User { id: string; email: string; plan_tier: 'free' | 'premium'; display_name: string; role: Role }
+export const isAdmin = (u: Pick<User, 'role'> | null | undefined) => u?.role === 'admin' || u?.role === 'owner'
+export const ROLE_LABEL: Record<Role, string> = { user: 'Usuario', admin: 'Admin', owner: 'Admin principal' }
 export interface AuthState { user: User | null; ready: boolean; recovery: boolean }
 
 const read = <T,>(k: string, d: T): T => { try { const v = localStorage.getItem(k); return v ? (JSON.parse(v) as T) : d } catch { return d } }
@@ -25,12 +29,16 @@ type SbUser = { id: string; email?: string; user_metadata?: Record<string, unkno
 async function loadProfile(u: SbUser | null) {
   if (!u) return set({ user: null, ready: true })
   let tier: User['plan_tier'] = 'free'
+  let role: Role = 'user'
   let name = String(u.user_metadata?.display_name ?? '') || (u.email ?? '').split('@')[0]
   try {
-    const { data } = await supabase!.from('profiles').select('plan_tier, display_name').eq('id', u.id).maybeSingle()
-    if (data) { tier = (data.plan_tier as User['plan_tier']) ?? 'free'; name = data.display_name || name }
+    const q = (cols: string) => supabase!.from('profiles').select(cols).eq('id', u.id).maybeSingle()
+    let r = await q('plan_tier, display_name, role')
+    if (r.error) r = await q('plan_tier, display_name') // base de datos sin la columna de roles (antes de 0004)
+    const data = r.data as { plan_tier?: User['plan_tier']; display_name?: string; role?: Role } | null
+    if (data) { tier = data.plan_tier ?? 'free'; name = data.display_name || name; role = data.role ?? 'user' }
   } catch { /* sin perfil: valores por defecto */ }
-  set({ user: { id: u.id, email: u.email ?? '', plan_tier: tier, display_name: name }, ready: true })
+  set({ user: { id: u.id, email: u.email ?? '', plan_tier: tier, display_name: name, role }, ready: true })
 }
 
 if (supabase) {
@@ -52,7 +60,7 @@ export function useAuth() {
 export const useUser = () => useAuth().user
 
 // ---------- errores en español ----------
-export type AuthErrorCode = 'invalid_credentials' | 'email_not_confirmed' | 'weak_password' | 'same_password' | 'rate_limit' | 'network' | 'expired' | 'unknown'
+export type AuthErrorCode = 'invalid_credentials' | 'email_not_confirmed' | 'weak_password' | 'same_password' | 'email_exists' | 'invalid_email' | 'same_email' | 'owner_cannot_delete' | 'forbidden' | 'rate_limit' | 'network' | 'expired' | 'unknown'
 export class AuthError extends Error {
   code: AuthErrorCode
   constructor(code: AuthErrorCode) { super(code); this.code = code }
@@ -62,6 +70,11 @@ export const AUTH_MESSAGES: Record<AuthErrorCode, string> = {
   email_not_confirmed: 'Aún no has verificado tu email. Abre el enlace que te enviamos o pide otro.',
   weak_password: 'La contraseña es demasiado débil. Usa al menos 8 caracteres con letras y números.',
   same_password: 'La nueva contraseña debe ser distinta de la anterior.',
+  email_exists: 'Ese email ya está en uso en otra cuenta.',
+  invalid_email: 'Ese email no parece válido. Revísalo.',
+  same_email: 'Ese ya es tu email actual.',
+  owner_cannot_delete: 'Eres el admin principal: tu cuenta no se puede borrar desde la app. Pasa antes el rol a otra cuenta desde Supabase.',
+  forbidden: 'No tienes permiso para hacer esto.',
   rate_limit: 'Demasiados intentos seguidos. Espera unos minutos y vuelve a probar.',
   network: 'No he podido conectar. Revisa tu conexión e inténtalo de nuevo.',
   expired: 'El enlace ha caducado o ya se usó. Pide uno nuevo.',
@@ -72,6 +85,10 @@ function toAuthError(e: unknown): AuthError {
   const c = `${err?.code ?? ''} ${err?.message ?? ''}`.toLowerCase()
   if (/invalid_credentials|invalid login credentials/.test(c)) return new AuthError('invalid_credentials')
   if (/email_not_confirmed|email not confirmed/.test(c)) return new AuthError('email_not_confirmed')
+  if (/owner_cannot_delete/.test(c)) return new AuthError('owner_cannot_delete')
+  if (/forbidden|42501|permission denied/.test(c) || err?.code === '42501') return new AuthError('forbidden')
+  if (/email_exists|already been registered|already registered/.test(c)) return new AuthError('email_exists')
+  if (/email_address_invalid|invalid.*email|unable to validate email/.test(c)) return new AuthError('invalid_email')
   if (/same_password|should be different/.test(c)) return new AuthError('same_password')
   if (/weak_password|password should|pwned|at least/.test(c)) return new AuthError('weak_password')
   if (/rate_limit|rate limit|too many|over_email_send|security purposes/.test(c) || err?.status === 429) return new AuthError('rate_limit')
@@ -98,7 +115,7 @@ type DemoAccount = { hash: string; name: string; id: string }
 const sha = async (t: string) => Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode('planazo:' + t)))).map((b) => b.toString(16).padStart(2, '0')).join('')
 const demoAccounts = () => read<Record<string, DemoAccount>>('pz_demo_accounts', {})
 const demoLogin = (email: string, a: DemoAccount) => {
-  const u: User = { id: a.id, email, plan_tier: 'free', display_name: a.name }
+  const u: User = { id: a.id, email, plan_tier: 'free', display_name: a.name, role: 'user' }
   write('pz_demo_user', u)
   set({ user: u, ready: true })
 }
@@ -163,6 +180,33 @@ export async function updateDisplayName(name: string) {
   set({ user: { ...u, display_name } })
 }
 
+/** Cambia el email. Con Supabase llega un enlace de confirmación (por seguridad, también al email actual)
+ *  y el cambio solo se aplica al confirmarlo. Devuelve 'confirm' o 'done' (modo demo). */
+export async function updateEmail(email: string): Promise<'confirm' | 'done'> {
+  const u = state.user; if (!u) throw new AuthError('expired')
+  email = norm(email)
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) throw new AuthError('invalid_email')
+  if (email === u.email) throw new AuthError('same_email')
+  if (!supabase) {
+    const all = demoAccounts()
+    if (all[email]) throw new AuthError('email_exists')
+    if (all[u.email]) { all[email] = all[u.email]; delete all[u.email]; write('pz_demo_accounts', all) }
+    const next = { ...u, email }; write('pz_demo_user', next); set({ user: next })
+    return 'done'
+  }
+  await run(() => supabase!.auth.updateUser({ email }, { emailRedirectTo: appUrl('cuenta?email=1') }))
+  return 'confirm'
+}
+
+/** Descarga de mis datos (perfil y planes guardados) en JSON. */
+export async function exportMyData(plans: unknown[]) {
+  const u = state.user; if (!u) return
+  const data = { exportado: new Date().toISOString(), cuenta: { email: u.email, nombre: u.display_name, plan: u.plan_tier, rol: u.role }, planes: plans }
+  const url = URL.createObjectURL(new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' }))
+  const a = document.createElement('a'); a.href = url; a.download = 'planazo-mis-datos.json'; a.click()
+  setTimeout(() => URL.revokeObjectURL(url), 1000)
+}
+
 /** Borra la cuenta y todos sus planes (función segura en la base de datos). */
 export async function deleteAccount() {
   const u = state.user; if (!u) return
@@ -189,8 +233,9 @@ export async function signIn(email: string, next = window.location.href): Promis
   return 'demo'
 }
 
-export async function signOut() {
-  if (supabase) await supabase.auth.signOut().catch(() => supabase!.auth.signOut({ scope: 'local' }))
+/** Cierra la sesión en este navegador o, con everywhere, en todos los dispositivos. */
+export async function signOut(everywhere = false) {
+  if (supabase) await supabase.auth.signOut({ scope: everywhere ? 'global' : 'local' }).catch(() => supabase!.auth.signOut({ scope: 'local' }))
   write('pz_demo_user', null)
   set({ user: null, recovery: false })
 }

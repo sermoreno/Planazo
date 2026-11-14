@@ -10,6 +10,7 @@ import { Skeleton } from '@/components/ui/skeleton'
 import { getPlace } from '@/lib/places'
 import { placePhoto } from '@/lib/photos'
 import { totalCost } from '@/lib/planner'
+import { isAdmin } from '@/lib/auth'
 import { deleteSaved, FREE_LIMIT, listSaved, useUser } from '@/lib/store'
 import type { Itinerary } from '@/lib/types'
 import { DAY_LABEL, euros } from '@/lib/utils'
@@ -30,7 +31,7 @@ export default function MyPlans() {
   if (!plans) return <main className="mx-auto max-w-6xl space-y-3 px-4 py-8"><Skeleton className="h-9 w-48" /><div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{[0, 1, 2].map((i) => <Skeleton key={i} className="h-64" />)}</div></main>
   if (!plans.length) return <EmptyState title="Aún no has guardado planes" text="Crea uno en un minuto y pulsa Guardar para tenerlo aquí." cta={{ to: '/plan/nuevo', label: 'Crear mi plan' }} />
 
-  const free = user.plan_tier === 'free'
+  const free = user.plan_tier === 'free' && !isAdmin(user)
   const remove = async (id: string) => { await deleteSaved(id); setPlans((p) => p?.filter((x) => x.id !== id) ?? []); setConfirm(null) }
 
   return (

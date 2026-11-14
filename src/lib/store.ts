@@ -2,7 +2,7 @@
  * Capa de datos. Con credenciales de Supabase usa Auth + Postgres (RLS).
  * Sin credenciales funciona en "modo demo": borradores, sesión y planes guardados en localStorage.
  */
-import { currentUser } from './auth'
+import { currentUser, isAdmin } from './auth'
 import { supabase } from './supabase'
 import type { Day, Itinerary, Preferences, Slot } from './types'
 import { slug, toMin } from './utils'
@@ -45,7 +45,7 @@ export async function saveItinerary(it: Itinerary): Promise<Itinerary> {
   if (!me) throw new Error('LOGIN_REQUIRED')
   const saved = await listSaved()
   const exists = saved.some((s) => s.id === it.id)
-  if (!exists && me.plan_tier === 'free' && saved.length >= FREE_LIMIT) throw new FreeLimitError()
+  if (!exists && me.plan_tier === 'free' && !isAdmin(me) && saved.length >= FREE_LIMIT) throw new FreeLimitError()
   const next: Itinerary = { ...it, status: 'saved' }
   if (!supabase) {
     write(demoKey(), [next, ...saved.filter((s) => s.id !== it.id)])
@@ -122,8 +122,20 @@ export function shareUrl(it: Itinerary) {
 
 export async function getShared(s: string, hash = ''): Promise<Itinerary | null> {
   if (!supabase) return (hash ? unpackPlan(hash, s) : null) ?? read<Record<string, Itinerary>>('pz_public', {})[s] ?? null
-  const { data } = await supabase.from('itineraries').select('*, preferences(*), itinerary_items(*)').eq('share_slug', s).eq('is_public', true).maybeSingle()
-  return data ? fromRow(data) : null
+  // Función segura: abre un plan solo sabiendo su enlace (no se pueden listar los planes públicos).
+  const { data, error } = await supabase.rpc('get_shared_plan', { p_slug: s })
+  if (!error) return data ? fromShared(data as SharedRow) : null
+  if (!/PGRST202|get_shared_plan/.test(`${error.code} ${error.message}`)) throw error
+  // Base de datos sin 0004 todavía: lectura antigua.
+  const old = await supabase.from('itineraries').select('*, itinerary_items(*)').eq('share_slug', s).eq('is_public', true).maybeSingle()
+  return old.data ? fromRow({ ...old.data, preferences: null }) : null
+}
+
+interface SharedRow { id: string; title: string; created_at: string; share_slug: string; day: Preferences['day']; budget: number | null; items: Omit<Row['itinerary_items'][number], 'id'>[] }
+function fromShared(r: SharedRow): Itinerary {
+  const it = fromRow({ id: r.id, title: r.title, created_at: r.created_at, status: 'saved', share_slug: r.share_slug, is_public: true, preferences: null,
+    itinerary_items: r.items.map((x, i) => ({ ...x, id: `s${i}` })) })
+  return { ...it, prefs: { ...it.prefs, day: r.day, budget: Number(r.budget ?? it.prefs.budget) } }
 }
 
 // ---------- mapeo de filas ----------

@@ -15,6 +15,23 @@ Sin credenciales funciona en **modo demo** (datos en el navegador y planificador
    En Authentication → URL Configuration, añade la URL publicada a Site URL y Redirect URLs.
    La web publicada en GitHub Pages ya usa el proyecto configurado en `.github/workflows/deploy.yml`.
 3. Si el proyecto ya existía, ejecuta también `supabase/migrations/0003_auth.sql` (cuentas con contraseña: perfil protegido, borrar cuenta, límite gratuito corregido). Es repetible.
+4. Y después `supabase/migrations/0004_roles_security.sql` (roles, panel de admin y revisión de seguridad). Es repetible y no borra datos.
+
+### Roles y administrador principal
+- Roles: `user` (por defecto), `admin` y `owner` (admin principal, solo puede haber uno). Se guardan en `profiles.role` y nadie puede cambiarse el rol ni el plan desde la app.
+- El admin principal se elige por email, **fuera del repositorio** (para no publicar el email). En el SQL Editor:
+```sql
+insert into private.settings (key, value) values ('principal_admin_email', 'tu-email@ejemplo.com')
+  on conflict (key) do update set value = excluded.value;
+select private.apply_principal_admin();
+```
+  El rol solo se aplica cuando ese email está verificado; si la cuenta aún no existe, se aplica sola al verificarlo.
+- Panel `/admin` (solo admins): lista de cuentas con email, plan y número de planes (sin ver su contenido), cambio Gratis/Premium y registro de acciones. Solo el admin principal nombra o quita admins. El admin principal no puede borrar su cuenta desde la app.
+
+### Seguridad de datos (RLS)
+- Cada persona solo ve y modifica sus perfiles, preferencias, planes y paradas. Sin sesión solo se lee el catálogo de sitios.
+- Los planes compartidos solo se abren con su enlace (`get_shared_plan`): ya no se pueden listar ni se expone quién los creó.
+- Permisos mínimos por tabla y por función, límites en servidor (3 planes en Gratis, topes anti-abuso, tamaño de textos) y la caché de direcciones solo admite coordenadas de la Comunidad de Madrid.
 
 ### Cuentas y acceso
 - Email y contraseña (mín. 8 caracteres con letras y números), verificación por email, recuperación de contraseña, enlace mágico opcional, sesión persistente y cierre de sesión (`src/lib/auth.ts`).

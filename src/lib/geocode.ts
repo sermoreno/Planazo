@@ -22,6 +22,7 @@ export async function geocode(query: string): Promise<{ lat: number; lng: number
   if (!j[0]) return null
   const res = { lat: Number(j[0].lat), lng: Number(j[0].lon) }
   try { localStorage.setItem(LS, JSON.stringify({ ...local(), [q]: [res.lat, res.lng] })) } catch { /* sin almacenamiento */ }
-  if (supabase) await supabase.from('geocode_cache').upsert({ query: q, ...res, updated_at: new Date().toISOString() })
+  // Solo se añade (nunca se sobrescribe lo que ya está): la caché es compartida entre usuarios.
+  if (supabase) await supabase.from('geocode_cache').upsert({ query: q, ...res, updated_at: new Date().toISOString() }, { onConflict: 'query', ignoreDuplicates: true })
   return res
 }

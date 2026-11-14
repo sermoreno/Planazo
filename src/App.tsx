@@ -9,6 +9,7 @@ import Explore from '@/pages/Explore'
 import MyPlans from '@/pages/MyPlans'
 import SharedPlan from '@/pages/SharedPlan'
 import Account from '@/pages/Account'
+import Admin from '@/pages/Admin'
 import Login from '@/pages/auth/Login'
 import Register from '@/pages/auth/Register'
 import ForgotPassword from '@/pages/auth/ForgotPassword'
@@ -38,6 +39,7 @@ export default function App() {
         <Route path="/explorar" element={<RequireAuth><Explore /></RequireAuth>} />
         <Route path="/mis-planes" element={<RequireAuth><MyPlans /></RequireAuth>} />
         <Route path="/cuenta" element={<RequireAuth><Account /></RequireAuth>} />
+        <Route path="/admin" element={<RequireAuth><Admin /></RequireAuth>} />
         <Route path="*" element={<EmptyState title="Página no encontrada" text="Vuelve al inicio y crea tu plan." cta={{ to: '/', label: 'Ir al inicio' }} />} />
       </Routes>
     </Router>

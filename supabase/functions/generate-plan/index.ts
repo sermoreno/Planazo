@@ -65,11 +65,17 @@ Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') return new Response('ok', { headers: cors })
   const json = (body: unknown, status = 200) => new Response(JSON.stringify(body), { status, headers: { ...cors, 'Content-Type': 'application/json' } })
   try {
+    // Solo personas con sesión: evita que cualquiera gaste la clave de la IA llamando a la función.
+    const sb = createClient(Deno.env.get('SUPABASE_URL')!, Deno.env.get('SUPABASE_ANON_KEY')!)
+    const token = (req.headers.get('Authorization') ?? '').replace(/^Bearer\s+/i, '')
+    const { data: auth } = token ? await sb.auth.getUser(token) : { data: { user: null } }
+    if (!auth.user) return json({ error: 'LOGIN_REQUIRED' }, 401)
+
     const { prefs } = (await req.json()) as { prefs: Prefs }
+    prefs.mood = String(prefs.mood ?? '').slice(0, 500)
     const apiKey = Deno.env.get('ANTHROPIC_API_KEY')
     if (!apiKey) return json({ error: 'NO_LLM_KEY' }, 503)
 
-    const sb = createClient(Deno.env.get('SUPABASE_URL')!, Deno.env.get('SUPABASE_ANON_KEY')!)
     const { data, error } = await sb.from('places').select('id,name,category,neighborhood,lat,lng,price_level,avg_cost_eur,avg_duration_min,opening_hours,indoor,tags')
     if (error) throw error
     const list = candidates(data as Place[], prefs)
@@ -107,6 +113,6 @@ ${JSON.stringify(list.map((x) => ({ id: x.id, name: x.name, cat: x.category, bar
     return json({ slots, message: res.parsed_output.message, source: 'ia' })
   } catch (e) {
     console.error(e)
-    return json({ error: 'INTERNAL', detail: String(e) }, 500)
+    return json({ error: 'INTERNAL' }, 500) // el detalle queda en los logs, no se envía al navegador
   }
 })

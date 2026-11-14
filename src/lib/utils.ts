@@ -19,5 +19,6 @@ export const walkMinutes = (km: number) => Math.max(3, Math.round(((km * 1.3) / 
 export const euros = (n: number) => (n === 0 ? 'Gratis' : `${Math.round(n)} €`)
 export const durationLabel = (min: number) => { const h = Math.floor(min / 60), m = min % 60; return h ? (m ? `${h} h ${m} min` : `${h} h`) : `${m} min` }
 export const uid = () => (crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).slice(2) + Date.now().toString(36))
-export const slug = () => Math.random().toString(36).slice(2, 8) + Math.random().toString(36).slice(2, 6)
+/** Enlace para compartir: 12 caracteres aleatorios criptográficos (no se puede adivinar). */
+export const slug = (n = 12) => Array.from(crypto.getRandomValues(new Uint8Array(n)), (b) => 'abcdefghijklmnopqrstuvwxyz0123456789'[b % 36]).join('')
 export const DAY_LABEL: Record<string, string> = { sat: 'Sábado', sun: 'Domingo', both: 'Sábado y domingo' }
