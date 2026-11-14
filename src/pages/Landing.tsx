@@ -95,7 +95,7 @@ export default function Landing() {
 
       {/* GALERÍA DE LUGARES */}
       <section className="bg-noche py-16 text-white sm:py-20">
-        <div className="mx-auto flex max-w-6xl items-end justify-between gap-4 px-4">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-end justify-between gap-4 px-4">
           <div>
             <p className="text-[13px] font-bold uppercase tracking-[0.1em] text-coral">Madrid, en planes</p>
             <h2 className="mt-2 text-3xl font-extrabold tracking-tight sm:text-5xl">{PLACES.length} lugares elegidos a mano</h2>
