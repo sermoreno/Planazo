@@ -166,11 +166,18 @@ function makeSlot(p: Place, prefs: Preferences, day: Day, start: number, _travel
   }
 }
 
-export function titleFor(prefs: Preferences) {
+/** Pueblo de la escapada si la mayoría de paradas está en uno (para el título). */
+export function townOf(slots: Pick<Slot, 'place_id'>[]) {
+  const towns = slots.map((s) => getPlace(s.place_id)).filter((p) => p?.tags.includes('escapada')).map((p) => p!.neighborhood)
+  const top = towns.sort((a, b) => towns.filter((t) => t === b).length - towns.filter((t) => t === a).length)[0]
+  return top && towns.filter((t) => t === top).length * 2 > slots.length ? top : undefined
+}
+
+export function titleFor(prefs: Preferences, town?: string) {
   const m = moodTags(prefs.mood)[0]?.label
   const who = { solo: 'a tu aire', pareja: 'en pareja', amigos: 'con amigos', familia: 'en familia' }[prefs.companions ?? 'solo']
   const day = prefs.day === 'both' ? 'Finde' : prefs.day === 'sat' ? 'Sábado' : 'Domingo'
-  return m ? `${day} para ${m} ${who}` : `${day} en Madrid ${who}`
+  return m ? `${day} para ${m} ${who}${town ? ` en ${town}` : ''}` : `${day} en ${town ?? 'Madrid'} ${who}`
 }
 
 export function generateLocal(prefs: Preferences, seed = Date.now()): Itinerary {
@@ -178,7 +185,7 @@ export function generateLocal(prefs: Preferences, seed = Date.now()): Itinerary 
   const half = prefs.day === 'both' ? { ...prefs, budget: prefs.budget / 2 } : prefs
   let slots: Slot[] = []
   for (const d of days) slots = slots.concat(buildDay(half, d, { seed: seed + (d === 'sun' ? 7 : 0), exclude: new Set(slots.map((x) => x.place_id)) }))
-  return { id: uid(), title: titleFor(prefs), prefs, slots, created_at: new Date().toISOString(), status: 'draft', share_slug: null, is_public: false, source: 'local' }
+  return { id: uid(), title: titleFor(prefs, townOf(slots)), prefs, slots, created_at: new Date().toISOString(), status: 'draft', share_slug: null, is_public: false, source: 'local' }
 }
 
 /** Recalcula horas y traslados después de cambiar/quitar paradas (mantiene el orden). */

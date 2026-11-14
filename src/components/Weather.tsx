@@ -57,7 +57,7 @@ export function StopWeather({ wx, indoor }: { wx: HourWx | undefined; indoor: bo
 export interface PlanWxSummary { day: Day; wx: DayWx; wetOutdoor: string[]; hotOutdoor: { name: string; temp: number }[]; coldest: number | null }
 
 /** Resumen del tiempo del plan con avisos y, si hay paradas al aire libre con lluvia, botón para adaptarlo. */
-export function PlanWeather({ items, onRain }: { items: PlanWxSummary[]; onRain?: () => void }) {
+export function PlanWeather({ items, onRain, where = 'Madrid' }: { items: PlanWxSummary[]; onRain?: () => void; where?: string }) {
   if (!items.length) return null
   const wet = items.flatMap((i) => i.wetOutdoor)
   const hot = items.flatMap((i) => i.hotOutdoor)
@@ -69,7 +69,7 @@ export function PlanWeather({ items, onRain }: { items: PlanWxSummary[]; onRain?
           <div key={i.day} className="flex min-w-[9.5rem] flex-1 items-center gap-2.5">
             <WeatherIcon code={i.wx.code} className="h-8 w-8" />
             <div className="text-sm leading-tight">
-              <p className="font-bold">{items.length > 1 ? `${DAY_LABEL[i.day]} ${dayNumber(i.wx.date)}` : `${DAY_LABEL[i.day]} ${dayNumber(i.wx.date)} en Madrid`}</p>
+              <p className="font-bold">{items.length > 1 ? `${DAY_LABEL[i.day]} ${dayNumber(i.wx.date)}` : `${DAY_LABEL[i.day]} ${dayNumber(i.wx.date)} en ${where}`}</p>
               <p className="text-noche-600"><span className="font-extrabold text-noche">{deg(i.wx.max)}</span> / {deg(i.wx.min)} · {wxLabel(i.wx.code)}{i.wx.rainProb != null && ` · ${i.wx.rainProb} % lluvia`}</p>
             </div>
           </div>

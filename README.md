@@ -50,16 +50,22 @@ VITE_SUPABASE_ANON_KEY=eyJ...
 - En el itinerario: resumen del día, tiempo a la hora de cada parada y avisos de lluvia (con botón "Adaptar a la lluvia"), calor (≥ 32 °C) o frío (≤ 5 °C). En la portada, la previsión del finde.
 - Licencia: datos CC BY 4.0, se cita "Open-Meteo.com" junto al tiempo y en Créditos. La API gratuita es solo para uso no comercial (menos de 10.000 llamadas al día); si Planazo pasa a cobrar, contrata su API comercial y pon su URL en `VITE_WEATHER_URL`.
 
+## Explorar y escapadas por la Comunidad de Madrid
+- `/explorar` tiene dos pestañas: **Madrid ciudad** (19 zonas por barrios) y **Escapadas** (9 pueblos: San Lorenzo de El Escorial, Aranjuez, Alcalá de Henares, Chinchón, Manzanares el Real y La Pedriza, Cercedilla, Rascafría y El Paular, Buitrago del Lozoya y Patones de Arriba). La lista muestra los nombres completos y se pliega en el móvil al elegir una zona.
+- Cada escapada (`src/lib/escapadas.ts`) tiene un punto de llegada y una línea de "Cómo llegar" en transporte público. Son estimaciones: se recomienda confirmar en crtm.es o renfe.com.
+- "Crear un plan desde aquí" usa ese punto como salida, así que el plan se queda en el pueblo; el título y el aviso de cómo llegar lo indican. Un plan normal (sin salida) sigue siendo solo de Madrid ciudad.
+- Al añadir lugares nuevos hay que volver a ejecutar `supabase/seed.sql` en Supabase; si no, guardar un plan con esos lugares falla.
+
 ## Activar el agente de IA (Claude)
 Sin esto, la app usa el planificador local (mismo formato de salida).
 ```bash
 supabase functions deploy generate-plan
 supabase secrets set ANTHROPIC_API_KEY=sk-ant-...
 ```
-La función (`supabase/functions/generate-plan`) usa el modelo `claude-opus-5-5` con salida JSON estricta y solo puede elegir lugares de la tabla `places`. Tiene activado el respaldo automático del servidor (`fallbacks: "default"`) por si el modelo rechaza una petición. Si la función falla o tarda más de 50 s, la app usa el planificador local.
+La función (`supabase/functions/generate-plan`) solo ofrece a la IA lugares a menos de 14 km del punto de salida (o de Sol), usa el modelo `claude-opus-5-5` con salida JSON estricta y solo puede elegir lugares de la tabla `places`. Tiene activado el respaldo automático del servidor (`fallbacks: "default"`) por si el modelo rechaza una petición. Si la función falla o tarda más de 50 s, la app usa el planificador local.
 
 ## Estructura
-- `scripts/places.src.mjs` (40 lugares iniciales) y `scripts/places.family.mjs` (ocio en familia y restaurantes de todo Madrid) → `node scripts/gen-seed.mjs` regenera `src/data/places.json`, `supabase/seed.sql` y `supabase/setup.sql`.
+- `scripts/places.src.mjs` (40 lugares iniciales), `scripts/places.family.mjs` (ocio en familia y restaurantes de todo Madrid) y `scripts/places.escapadas.mjs` (31 sitios de las escapadas; los sitios para comer son zonas con varios restaurantes) → `node scripts/gen-seed.mjs` regenera `src/data/places.json`, `supabase/seed.sql` y `supabase/setup.sql`.
 - `src/lib/planner.ts` → planificador local (fallback de la IA): proximidad, presupuesto y horario.
 - `src/lib/routing.ts` → rutas a pie OSRM (línea recta si falla). `src/lib/geocode.ts` → Nominatim con caché.
 - `src/components/ItineraryView.tsx` + `MapView.tsx` → Feature 2 (itinerario + mapa Leaflet con teselas estándar de OpenStreetMap, sin clave; se cambian en `src/lib/tiles.ts` o con `VITE_TILES_URL`).

@@ -1,6 +1,6 @@
 /** Agente conversacional: preguntas que faltan, generación (IA vía Edge Function o planificador local). */
 import { getPlace, PLACES } from './places'
-import { generateLocal, titleFor } from './planner'
+import { generateLocal, titleFor, townOf } from './planner'
 import { supabase } from './supabase'
 import type { Companions, Interest, Itinerary, Pace, Preferences, Slot } from './types'
 import { distanceKm, toMin, uid, walkMinutes } from './utils'
@@ -69,7 +69,7 @@ function fromAI(prefs: Preferences, raw: Omit<Slot, 'id' | 'travel_min_from_prev
     const travel = prev && prev.day === s.day ? walkMinutes(distanceKm(getPlace(prev.place_id)!, p)) : null
     return { ...s, id: uid(), title: p.name, duration_min: s.duration_min || toMin(s.end_time) - toMin(s.start_time), travel_min_from_prev: travel }
   })
-  return { id: uid(), title: titleFor(prefs), prefs, slots, created_at: new Date().toISOString(), status: 'draft', share_slug: null, is_public: false, source: 'ia' }
+  return { id: uid(), title: titleFor(prefs, townOf(slots)), prefs, slots, created_at: new Date().toISOString(), status: 'draft', share_slug: null, is_public: false, source: 'ia' }
 }
 
 export const placesCount = PLACES.length

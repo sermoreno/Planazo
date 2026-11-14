@@ -1,13 +1,26 @@
-/** Zonas de Madrid para el explorador: se agrupan los barrios del seed y se teselan con Voronoi. */
+/**
+ * Zonas para el explorador. En la ciudad se agrupan los barrios del seed y se teselan con Voronoi;
+ * las escapadas por la Comunidad de Madrid son pueblos sueltos, con un círculo alrededor de sus sitios.
+ */
 import { Delaunay } from 'd3-delaunay'
+import { ESCAPADAS } from './escapadas'
 import { PLACES } from './places'
 import type { Place } from './types'
 import { distanceKm } from './utils'
 
+export type Region = 'ciudad' | 'escapada'
 export interface Zone {
   id: string
   name: string
   blurb: string
+  region: Region
+  /** Cómo llegar desde Madrid (solo escapadas). Estimación: confirmar en crtm.es o renfe.com. */
+  access?: string
+  /** Kilómetros en línea recta desde la Puerta del Sol (solo escapadas). */
+  km?: number
+  /** Etiqueta corta en el mapa de escapadas. */
+  short?: string
+  side?: 'left' | 'right' | 'top' | 'bottom'
   hub: { label: string; lat: number; lng: number }
   neighborhoods: string[]
   places: Place[]
@@ -15,7 +28,7 @@ export interface Zone {
   polygon: [number, number][]
 }
 
-const DEFS: Omit<Zone, 'places' | 'center' | 'polygon'>[] = [
+const CITY: Omit<Zone, 'places' | 'center' | 'polygon' | 'region'>[] = [
   { id: 'sol', name: 'Sol y Madrid de los Austrias', blurb: 'El Madrid de postal: plazas, palacio y tabernas centenarias.', hub: { label: 'Metro Sol', lat: 40.4169, lng: -3.7035 }, neighborhoods: ['Sol', 'Palacio', 'Centro'] },
   { id: 'latina', name: 'La Latina', blurb: 'Cañas en la Cava Baja, el Rastro del domingo y flamenco.', hub: { label: 'Metro La Latina', lat: 40.4113, lng: -3.7083 }, neighborhoods: ['La Latina'] },
   { id: 'lavapies', name: 'Lavapiés y Embajadores', blurb: 'Multicultural y alternativo, con mercados de barrio y el Reina Sofía.', hub: { label: 'Metro Lavapiés', lat: 40.4089, lng: -3.7009 }, neighborhoods: ['Lavapiés', 'Embajadores'] },
@@ -64,12 +77,21 @@ function clip(subject: [number, number][], clipper: [number, number][]) {
   return out
 }
 
-function build(): Zone[] {
-  const zones = DEFS.map((d) => {
-    const places = PLACES.filter((p) => d.neighborhoods.includes(p.neighborhood))
-    const center = { lat: places.reduce((a, p) => a + p.lat, 0) / places.length, lng: places.reduce((a, p) => a + p.lng, 0) / places.length }
-    return { ...d, places, center, polygon: [] as [number, number][] }
+const withPlaces = (d: Omit<Zone, 'places' | 'center' | 'polygon'>): Zone => {
+  const places = PLACES.filter((p) => d.neighborhoods.includes(p.neighborhood))
+  const center = { lat: places.reduce((a, p) => a + p.lat, 0) / places.length, lng: places.reduce((a, p) => a + p.lng, 0) / places.length }
+  return { ...d, places, center, polygon: [] }
+}
+const circleAround = (z: Zone, minKm: number): [number, number][] => {
+  const km = Math.max(minKm, ...z.places.map((p) => distanceKm(z.center, p) + 0.5), distanceKm(z.center, z.hub) + 0.3)
+  return Array.from({ length: 48 }, (_, k) => {
+    const t = (k / 48) * 2 * Math.PI
+    return toLatLng([z.center.lng * K + (km / 111) * Math.cos(t), z.center.lat + (km / 111) * Math.sin(t)])
   })
+}
+
+function build(): Zone[] {
+  const zones = CITY.map((d) => withPlaces({ ...d, region: 'ciudad' }))
   const seeds = zones.map((z) => toXY(z.center.lat, z.center.lng))
   const v = Delaunay.from(seeds).voronoi([-3.85 * K, 40.33, -3.5 * K, 40.52])
   zones.forEach((z, i) => {
@@ -83,7 +105,9 @@ function build(): Zone[] {
     // d3 devuelve celdas en sentido horario en coordenadas y-arriba → invertimos para el recorte
     z.polygon = clip(cell.slice().reverse(), circle).map(toLatLng)
   })
-  return zones
+  const trips = ESCAPADAS.map((d) => withPlaces({ ...d, region: 'escapada' })).filter((z) => z.places.length)
+  trips.forEach((z) => { z.polygon = circleAround(z, 0.9); z.km = Math.round(distanceKm({ lat: 40.4169, lng: -3.7035 }, z.center) / 5) * 5 })
+  return [...zones, ...trips]
 }
 
 export const ZONES = build()

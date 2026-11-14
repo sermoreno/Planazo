@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion'
-import { AlertTriangle, ChevronDown, ChevronUp, Clock, ExternalLink, Footprints, MapPin, RefreshCw, Trash2, Wallet } from 'lucide-react'
+import { AlertTriangle, ChevronDown, ChevronUp, Clock, ExternalLink, Footprints, MapPin, RefreshCw, TrainFront, Trash2, Wallet } from 'lucide-react'
 import { forwardRef, useEffect, useMemo, useRef, useState } from 'react'
 import { MapView } from './MapView'
 import { PlanWeather, StopWeather, type PlanWxSummary } from './Weather'
@@ -8,7 +8,8 @@ import { Button } from './ui/button'
 import { Card } from './ui/card'
 import { getPlace } from '@/lib/places'
 import { credit, placePhoto } from '@/lib/photos'
-import { totalCost, totalMinutes } from '@/lib/planner'
+import { ACCESS_NOTE, escapadaOf } from '@/lib/escapadas'
+import { totalCost, totalMinutes, townOf } from '@/lib/planner'
 import { walkingRoute } from '@/lib/routing'
 import type { Day, Itinerary, Place, Slot } from '@/lib/types'
 import { cn, DAY_LABEL, durationLabel, euros, toMin } from '@/lib/utils'
@@ -62,6 +63,8 @@ export function ItineraryView({ it, edit, toolbar, onRain }: { it: Itinerary; ed
     const ps = it.slots.map((s) => getPlace(s.place_id)).filter(Boolean) as Place[]
     return ps.length ? { lat: ps.reduce((a, p) => a + p.lat, 0) / ps.length, lng: ps.reduce((a, p) => a + p.lng, 0) / ps.length } : undefined
   }, [routeKey]) // eslint-disable-line react-hooks/exhaustive-deps
+  const town = useMemo(() => townOf(it.slots), [routeKey]) // eslint-disable-line react-hooks/exhaustive-deps
+  const trip = escapadaOf(town)
   const forecast = useForecast(center?.lat, center?.lng)
   const weather = useMemo(() => planWeather(it, days, forecast), [it, days, forecast])
 
@@ -113,13 +116,19 @@ export function ItineraryView({ it, edit, toolbar, onRain }: { it: Itinerary; ed
           </button>
 
           <div className="mb-4">
-            <p className="text-sm font-semibold text-coral-700">{DAY_LABEL[it.prefs.day]} · Madrid</p>
+            <p className="text-sm font-semibold text-coral-700">{DAY_LABEL[it.prefs.day]} · {town ? `Escapada a ${town}` : 'Madrid'}</p>
             <h1 className="text-2xl font-extrabold leading-tight tracking-tight sm:text-3xl">{it.title}</h1>
             {it.source === 'mock' && <p className="mt-1 text-sm text-noche-600">Ejemplo con datos de prueba para validar la vista.</p>}
+            {trip && (
+              <p className="mt-3 flex items-start gap-2 rounded-xl bg-white px-3 py-2.5 text-[14px] shadow-soft">
+                <TrainFront className="mt-0.5 h-4 w-4 shrink-0 text-coral-700" aria-hidden />
+                <span><b>Cómo llegar desde Madrid:</b> {trip.access} <span className="text-noche-600">{ACCESS_NOTE}</span></span>
+              </p>
+            )}
           </div>
 
           {toolbar}
-          <PlanWeather items={weather.summary} onRain={onRain} />
+          <PlanWeather items={weather.summary} onRain={onRain} where={town} />
 
           {days.map((d) => (
             <section key={d} className="mt-2">

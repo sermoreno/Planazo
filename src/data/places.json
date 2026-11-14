@@ -2672,5 +2672,1003 @@
   "external_url": "https://www.openstreetmap.org/search?query=Mercado%20de%20la%20Cebada%2C%20Madrid",
   "description": "Mercado popular de La Latina; los sábados a mediodía se llena de puestos de marisco.",
   "is_verified": false
+ },
+ {
+  "id": "562e07d9-23a2-5c89-a9b5-c27c172369b1",
+  "name": "Real Monasterio de El Escorial",
+  "category": "museo",
+  "neighborhood": "San Lorenzo de El Escorial",
+  "address": "Avenida de Juan de Borbón y Battemberg, s/n, San Lorenzo de El Escorial",
+  "lat": 40.58917,
+  "lng": -4.14778,
+  "price_level": 2,
+  "avg_cost_eur": 14,
+  "avg_duration_min": 150,
+  "opening_hours": {
+   "sat": [
+    "10:00",
+    "18:00"
+   ],
+   "sun": [
+    "10:00",
+    "18:00"
+   ]
+  },
+  "indoor": true,
+  "tags": [
+   "cultura",
+   "lluvia",
+   "fotogenico",
+   "pareja",
+   "familia",
+   "escapada"
+  ],
+  "external_url": "https://www.patrimonionacional.es",
+  "description": "Monasterio, palacio y panteón de reyes de Felipe II: basílica, biblioteca y salas de pintura. Cierra los lunes.",
+  "is_verified": false
+ },
+ {
+  "id": "5ea1ac5b-3f85-5b37-a75d-46f4d6278125",
+  "name": "Silla de Felipe II",
+  "category": "mirador",
+  "neighborhood": "El Escorial",
+  "address": "Carretera M-505 hacia Robledo de Chavela, Bosque de La Herrería",
+  "lat": 40.56829,
+  "lng": -4.15272,
+  "price_level": 0,
+  "avg_cost_eur": 0,
+  "avg_duration_min": 45,
+  "opening_hours": {
+   "sat": [
+    "00:00",
+    "23:59"
+   ],
+   "sun": [
+    "00:00",
+    "23:59"
+   ]
+  },
+  "indoor": false,
+  "tags": [
+   "naturaleza",
+   "atardecer",
+   "fotogenico",
+   "pareja",
+   "familia",
+   "tranquilo",
+   "escapada"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Silla%20de%20Felipe%20II%2C%20El%20Escorial%2C%20Comunidad%20de%20Madrid",
+  "description": "Rocas talladas en el Bosque de La Herrería con la mejor vista del monasterio; se sube a pie en unos 40 minutos.",
+  "is_verified": false
+ },
+ {
+  "id": "2175d866-1fb4-5cd6-adff-101e6a82aa9a",
+  "name": "Mesones de la calle Floridablanca",
+  "category": "restaurante",
+  "neighborhood": "San Lorenzo de El Escorial",
+  "address": "Calle de Floridablanca, San Lorenzo de El Escorial",
+  "lat": 40.5906,
+  "lng": -4.1456,
+  "price_level": 2,
+  "avg_cost_eur": 28,
+  "avg_duration_min": 90,
+  "opening_hours": {
+   "sat": [
+    "13:00",
+    "23:00"
+   ],
+   "sun": [
+    "13:00",
+    "23:00"
+   ]
+  },
+  "indoor": true,
+  "tags": [
+   "gastronomia",
+   "familia",
+   "pareja",
+   "amigos",
+   "escapada"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Calle%20de%20Floridablanca%2C%20San%20Lorenzo%20de%20El%20Escorial%2C%20Comunidad%20de%20Madrid",
+  "description": "Mesones y terrazas frente al monasterio: carne de la sierra, setas en otoño y menú del día.",
+  "is_verified": false
+ },
+ {
+  "id": "2b358a44-1bba-5e8f-a90c-298e84567c6c",
+  "name": "Palacio Real de Aranjuez",
+  "category": "museo",
+  "neighborhood": "Aranjuez",
+  "address": "Plaza de Parejas, s/n, Aranjuez",
+  "lat": 40.03636,
+  "lng": -3.60818,
+  "price_level": 1,
+  "avg_cost_eur": 10,
+  "avg_duration_min": 90,
+  "opening_hours": {
+   "sat": [
+    "10:00",
+    "18:00"
+   ],
+   "sun": [
+    "10:00",
+    "18:00"
+   ]
+  },
+  "indoor": true,
+  "tags": [
+   "cultura",
+   "lluvia",
+   "fotogenico",
+   "pareja",
+   "familia",
+   "escapada"
+  ],
+  "external_url": "https://www.patrimonionacional.es",
+  "description": "Palacio de primavera de los Borbones, con el Gabinete de Porcelana y salas de época. Cierra los lunes.",
+  "is_verified": false
+ },
+ {
+  "id": "2c39243c-8934-52f3-ad22-5e7bfe2e5c30",
+  "name": "Jardín del Príncipe",
+  "category": "parque",
+  "neighborhood": "Aranjuez",
+  "address": "Calle de la Reina, s/n, Aranjuez",
+  "lat": 40.0411,
+  "lng": -3.58966,
+  "price_level": 0,
+  "avg_cost_eur": 0,
+  "avg_duration_min": 90,
+  "opening_hours": {
+   "sat": [
+    "08:00",
+    "18:30"
+   ],
+   "sun": [
+    "08:00",
+    "18:30"
+   ]
+  },
+  "indoor": false,
+  "tags": [
+   "naturaleza",
+   "familia",
+   "niños",
+   "pareja",
+   "tranquilo",
+   "activo",
+   "escapada"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Jard%C3%ADn%20del%20Pr%C3%ADncipe%2C%20Aranjuez%2C%20Comunidad%20de%20Madrid",
+  "description": "Jardín enorme junto al Tajo, con estanques, la Casa del Labrador y paseos arbolados para ir en bici.",
+  "is_verified": false
+ },
+ {
+  "id": "6774683d-5cae-5466-ab28-7124ef2b50cc",
+  "name": "Jardín de la Isla",
+  "category": "parque",
+  "neighborhood": "Aranjuez",
+  "address": "Plaza de Parejas, s/n, Aranjuez",
+  "lat": 40.03973,
+  "lng": -3.61101,
+  "price_level": 0,
+  "avg_cost_eur": 0,
+  "avg_duration_min": 45,
+  "opening_hours": {
+   "sat": [
+    "08:00",
+    "18:30"
+   ],
+   "sun": [
+    "08:00",
+    "18:30"
+   ]
+  },
+  "indoor": false,
+  "tags": [
+   "naturaleza",
+   "tranquilo",
+   "pareja",
+   "fotogenico",
+   "escapada"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Jard%C3%ADn%20de%20la%20Isla%2C%20Aranjuez%2C%20Comunidad%20de%20Madrid",
+  "description": "Jardín renacentista entre el Tajo y la ría, con fuentes mitológicas junto al palacio.",
+  "is_verified": false
+ },
+ {
+  "id": "1e2e0b4b-979d-5ac0-abe2-eb0bc22ca6cc",
+  "name": "Museo de Falúas Reales",
+  "category": "museo",
+  "neighborhood": "Aranjuez",
+  "address": "Calle de la Reina, s/n, Aranjuez",
+  "lat": 40.04299,
+  "lng": -3.60202,
+  "price_level": 1,
+  "avg_cost_eur": 5,
+  "avg_duration_min": 40,
+  "opening_hours": {
+   "sat": [
+    "10:00",
+    "18:00"
+   ],
+   "sun": [
+    "10:00",
+    "18:00"
+   ]
+  },
+  "indoor": true,
+  "tags": [
+   "cultura",
+   "familia",
+   "niños",
+   "lluvia",
+   "escapada"
+  ],
+  "external_url": "https://www.patrimonionacional.es",
+  "description": "Las embarcaciones de recreo de los reyes en el Tajo, con la falúa dorada de Carlos IV.",
+  "is_verified": false
+ },
+ {
+  "id": "24196efd-b9da-58b2-a4b6-f2ab26dc102e",
+  "name": "Restaurantes de la plaza de San Antonio",
+  "category": "restaurante",
+  "neighborhood": "Aranjuez",
+  "address": "Plaza de San Antonio, Aranjuez",
+  "lat": 40.0347,
+  "lng": -3.6055,
+  "price_level": 2,
+  "avg_cost_eur": 25,
+  "avg_duration_min": 90,
+  "opening_hours": {
+   "sat": [
+    "13:00",
+    "23:00"
+   ],
+   "sun": [
+    "13:00",
+    "23:00"
+   ]
+  },
+  "indoor": true,
+  "tags": [
+   "gastronomia",
+   "familia",
+   "pareja",
+   "amigos",
+   "escapada"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Plaza%20de%20San%20Antonio%2C%20Aranjuez%2C%20Comunidad%20de%20Madrid",
+  "description": "Soportales y terrazas donde probar fresones y espárragos de Aranjuez en temporada.",
+  "is_verified": false
+ },
+ {
+  "id": "49f20ef8-6c88-5b0e-abda-23b3ea1d331d",
+  "name": "Universidad de Alcalá (Colegio de San Ildefonso)",
+  "category": "museo",
+  "neighborhood": "Alcalá de Henares",
+  "address": "Plaza de San Diego, s/n, Alcalá de Henares",
+  "lat": 40.48286,
+  "lng": -3.36307,
+  "price_level": 1,
+  "avg_cost_eur": 6,
+  "avg_duration_min": 60,
+  "opening_hours": {
+   "sat": [
+    "11:00",
+    "19:00"
+   ],
+   "sun": [
+    "11:00",
+    "19:00"
+   ]
+  },
+  "indoor": true,
+  "tags": [
+   "cultura",
+   "fotogenico",
+   "lluvia",
+   "pareja",
+   "escapada"
+  ],
+  "external_url": "https://www.uah.es",
+  "description": "Fachada plateresca, tres patios y el Paraninfo donde se entrega el Premio Cervantes; visitas guiadas cada hora.",
+  "is_verified": false
+ },
+ {
+  "id": "395fa9b1-8322-5e9a-a22e-dd96060640c1",
+  "name": "Museo Casa Natal de Cervantes",
+  "category": "museo",
+  "neighborhood": "Alcalá de Henares",
+  "address": "Calle Mayor, 48, Alcalá de Henares",
+  "lat": 40.48212,
+  "lng": -3.36702,
+  "price_level": 0,
+  "avg_cost_eur": 0,
+  "avg_duration_min": 45,
+  "opening_hours": {
+   "sat": [
+    "10:00",
+    "18:00"
+   ],
+   "sun": [
+    "10:00",
+    "18:00"
+   ]
+  },
+  "indoor": true,
+  "tags": [
+   "cultura",
+   "familia",
+   "lluvia",
+   "tranquilo",
+   "escapada"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Museo%20Casa%20Natal%20de%20Cervantes%2C%20Alcal%C3%A1%20de%20Henares%2C%20Comunidad%20de%20Madrid",
+  "description": "Casa-museo que recrea una vivienda del siglo XVI; en la puerta, el banco de Don Quijote y Sancho. Gratis.",
+  "is_verified": false
+ },
+ {
+  "id": "65f4e962-e464-589c-a5b2-4d8b626b6ffc",
+  "name": "Calle Mayor y plaza de Cervantes",
+  "category": "paseo",
+  "neighborhood": "Alcalá de Henares",
+  "address": "Plaza de Cervantes, Alcalá de Henares",
+  "lat": 40.4823,
+  "lng": -3.3642,
+  "price_level": 0,
+  "avg_cost_eur": 0,
+  "avg_duration_min": 45,
+  "opening_hours": {
+   "sat": [
+    "00:00",
+    "23:59"
+   ],
+   "sun": [
+    "00:00",
+    "23:59"
+   ]
+  },
+  "indoor": false,
+  "tags": [
+   "cultura",
+   "familia",
+   "pareja",
+   "fotogenico",
+   "tranquilo",
+   "escapada"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Plaza%20de%20Cervantes%2C%20Alcal%C3%A1%20de%20Henares%2C%20Comunidad%20de%20Madrid",
+  "description": "Una de las calles porticadas más largas de España, con cigüeñas en los campanarios y la plaza de Cervantes al final.",
+  "is_verified": false
+ },
+ {
+  "id": "12d89d68-452d-5be4-a041-f1efa844cfce",
+  "name": "Bares de tapas del centro de Alcalá",
+  "category": "bar",
+  "neighborhood": "Alcalá de Henares",
+  "address": "Calle Mayor y alrededores, Alcalá de Henares",
+  "lat": 40.4822,
+  "lng": -3.3655,
+  "price_level": 1,
+  "avg_cost_eur": 15,
+  "avg_duration_min": 75,
+  "opening_hours": {
+   "sat": [
+    "12:00",
+    "23:59"
+   ],
+   "sun": [
+    "12:00",
+    "23:59"
+   ]
+  },
+  "indoor": true,
+  "tags": [
+   "gastronomia",
+   "amigos",
+   "pareja",
+   "escapada"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Calle%20Mayor%2C%20Alcal%C3%A1%20de%20Henares%2C%20Comunidad%20de%20Madrid",
+  "description": "En Alcalá cada caña viene con una tapa generosa: buena ruta de bares por el casco histórico.",
+  "is_verified": false
+ },
+ {
+  "id": "95ddbf99-cc21-5ec1-afb2-1c14413c9764",
+  "name": "Plaza Mayor de Chinchón",
+  "category": "paseo",
+  "neighborhood": "Chinchón",
+  "address": "Plaza Mayor, Chinchón",
+  "lat": 40.14011,
+  "lng": -3.42254,
+  "price_level": 0,
+  "avg_cost_eur": 0,
+  "avg_duration_min": 45,
+  "opening_hours": {
+   "sat": [
+    "00:00",
+    "23:59"
+   ],
+   "sun": [
+    "00:00",
+    "23:59"
+   ]
+  },
+  "indoor": false,
+  "tags": [
+   "cultura",
+   "fotogenico",
+   "pareja",
+   "familia",
+   "tranquilo",
+   "escapada"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Plaza%20Mayor%2C%20Chinch%C3%B3n%2C%20Comunidad%20de%20Madrid",
+  "description": "Plaza medieval de balcones de madera que se convierte en coso taurino y en belén viviente en Navidad.",
+  "is_verified": false
+ },
+ {
+  "id": "36b2620c-0855-5869-a6eb-79d7ec3b9989",
+  "name": "Castillo de los Condes de Chinchón",
+  "category": "mirador",
+  "neighborhood": "Chinchón",
+  "address": "Calle del Castillo, Chinchón",
+  "lat": 40.13631,
+  "lng": -3.42419,
+  "price_level": 0,
+  "avg_cost_eur": 0,
+  "avg_duration_min": 30,
+  "opening_hours": {
+   "sat": [
+    "00:00",
+    "23:59"
+   ],
+   "sun": [
+    "00:00",
+    "23:59"
+   ]
+  },
+  "indoor": false,
+  "tags": [
+   "atardecer",
+   "fotogenico",
+   "tranquilo",
+   "pareja",
+   "escapada"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Castillo%20de%20los%20Condes%2C%20Chinch%C3%B3n%2C%20Comunidad%20de%20Madrid",
+  "description": "Castillo del siglo XVI que solo se ve por fuera; subir hasta él regala vistas del pueblo al atardecer.",
+  "is_verified": false
+ },
+ {
+  "id": "a001cba7-28d9-51a8-a5f2-5cfde43f1ffa",
+  "name": "Mesones de la plaza de Chinchón",
+  "category": "restaurante",
+  "neighborhood": "Chinchón",
+  "address": "Plaza Mayor, Chinchón",
+  "lat": 40.1404,
+  "lng": -3.4229,
+  "price_level": 2,
+  "avg_cost_eur": 30,
+  "avg_duration_min": 105,
+  "opening_hours": {
+   "sat": [
+    "13:00",
+    "23:00"
+   ],
+   "sun": [
+    "13:00",
+    "23:00"
+   ]
+  },
+  "indoor": true,
+  "tags": [
+   "gastronomia",
+   "familia",
+   "pareja",
+   "amigos",
+   "escapada"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Plaza%20Mayor%2C%20Chinch%C3%B3n%2C%20Comunidad%20de%20Madrid",
+  "description": "Balcones sobre la plaza para comer cordero asado y sopa castellana, y probar el anís de Chinchón.",
+  "is_verified": false
+ },
+ {
+  "id": "665601e5-2351-5cbe-a302-2aa005dc5905",
+  "name": "Castillo de Manzanares el Real",
+  "category": "museo",
+  "neighborhood": "Manzanares el Real",
+  "address": "Castillo de los Mendoza, Manzanares el Real",
+  "lat": 40.72722,
+  "lng": -3.86222,
+  "price_level": 1,
+  "avg_cost_eur": 5,
+  "avg_duration_min": 75,
+  "opening_hours": {
+   "sat": [
+    "10:00",
+    "17:30"
+   ],
+   "sun": [
+    "10:00",
+    "17:30"
+   ]
+  },
+  "indoor": true,
+  "tags": [
+   "cultura",
+   "familia",
+   "niños",
+   "fotogenico",
+   "lluvia",
+   "escapada"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Castillo%20de%20los%20Mendoza%2C%20Manzanares%20el%20Real%2C%20Comunidad%20de%20Madrid",
+  "description": "Castillo del siglo XV muy bien conservado, con tapices, adarve y el embalse de Santillana a sus pies.",
+  "is_verified": false
+ },
+ {
+  "id": "d8e64e55-6694-5675-abf5-6aba4179d074",
+  "name": "La Pedriza",
+  "category": "parque",
+  "neighborhood": "Manzanares el Real",
+  "address": "Parque Regional de la Cuenca Alta del Manzanares (acceso por Canto Cochino)",
+  "lat": 40.7552,
+  "lng": -3.889,
+  "price_level": 0,
+  "avg_cost_eur": 0,
+  "avg_duration_min": 180,
+  "opening_hours": {
+   "sat": [
+    "08:00",
+    "20:00"
+   ],
+   "sun": [
+    "08:00",
+    "20:00"
+   ]
+  },
+  "indoor": false,
+  "tags": [
+   "naturaleza",
+   "activo",
+   "deporte",
+   "familia",
+   "fotogenico",
+   "amigos",
+   "escapada"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Canto%20Cochino%2C%20Manzanares%20el%20Real%2C%20Comunidad%20de%20Madrid",
+  "description": "Granito, pozas y rutas para todos los niveles, como la de la Charca Verde. El aparcamiento se llena pronto.",
+  "is_verified": false
+ },
+ {
+  "id": "ecd50909-8b66-59f9-ae21-2418621d22ee",
+  "name": "Restaurantes del centro de Manzanares el Real",
+  "category": "restaurante",
+  "neighborhood": "Manzanares el Real",
+  "address": "Plaza del Pueblo y alrededores, Manzanares el Real",
+  "lat": 40.7262,
+  "lng": -3.8607,
+  "price_level": 2,
+  "avg_cost_eur": 22,
+  "avg_duration_min": 90,
+  "opening_hours": {
+   "sat": [
+    "13:00",
+    "23:00"
+   ],
+   "sun": [
+    "13:00",
+    "23:00"
+   ]
+  },
+  "indoor": true,
+  "tags": [
+   "gastronomia",
+   "familia",
+   "amigos",
+   "escapada"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Manzanares%20el%20Real%2C%20Comunidad%20de%20Madrid",
+  "description": "Asadores y terrazas con vistas al castillo para reponer fuerzas después de La Pedriza.",
+  "is_verified": false
+ },
+ {
+  "id": "cf5cefd0-e578-58cd-a130-b3ed7f65b2a2",
+  "name": "Calzada romana de la Fuenfría",
+  "category": "parque",
+  "neighborhood": "Cercedilla",
+  "address": "Puente del Descalzo, valle de la Fuenfría, Cercedilla",
+  "lat": 40.775,
+  "lng": -4.0662,
+  "price_level": 0,
+  "avg_cost_eur": 0,
+  "avg_duration_min": 150,
+  "opening_hours": {
+   "sat": [
+    "08:00",
+    "20:00"
+   ],
+   "sun": [
+    "08:00",
+    "20:00"
+   ]
+  },
+  "indoor": false,
+  "tags": [
+   "naturaleza",
+   "activo",
+   "deporte",
+   "cultura",
+   "amigos",
+   "escapada"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Calzada%20romana%2C%20Cercedilla%2C%20Comunidad%20de%20Madrid",
+  "description": "Ruta entre pinos por la antigua calzada que cruzaba la sierra, con el puente del Descalzo a mitad de camino.",
+  "is_verified": false
+ },
+ {
+  "id": "a837d128-425e-5a47-add8-93add7707e0d",
+  "name": "Área recreativa de Las Dehesas",
+  "category": "parque",
+  "neighborhood": "Cercedilla",
+  "address": "Carretera de Las Dehesas, Cercedilla",
+  "lat": 40.7585,
+  "lng": -4.064,
+  "price_level": 0,
+  "avg_cost_eur": 0,
+  "avg_duration_min": 90,
+  "opening_hours": {
+   "sat": [
+    "08:00",
+    "20:00"
+   ],
+   "sun": [
+    "08:00",
+    "20:00"
+   ]
+  },
+  "indoor": false,
+  "tags": [
+   "naturaleza",
+   "familia",
+   "niños",
+   "tranquilo",
+   "escapada"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Las%20Dehesas%2C%20Cercedilla%2C%20Comunidad%20de%20Madrid",
+  "description": "Pinar con merenderos, arroyos y el centro de visitantes del valle; plan fácil con niños.",
+  "is_verified": false
+ },
+ {
+  "id": "68683142-aedd-5564-a498-6956ad9e12e8",
+  "name": "Restaurantes del centro de Cercedilla",
+  "category": "restaurante",
+  "neighborhood": "Cercedilla",
+  "address": "Centro de Cercedilla",
+  "lat": 40.738,
+  "lng": -4.062,
+  "price_level": 2,
+  "avg_cost_eur": 22,
+  "avg_duration_min": 90,
+  "opening_hours": {
+   "sat": [
+    "13:00",
+    "23:00"
+   ],
+   "sun": [
+    "13:00",
+    "23:00"
+   ]
+  },
+  "indoor": true,
+  "tags": [
+   "gastronomia",
+   "familia",
+   "amigos",
+   "escapada"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Cercedilla%2C%20Comunidad%20de%20Madrid",
+  "description": "Cocina de sierra, judiones y carne a la brasa cerca de la estación.",
+  "is_verified": false
+ },
+ {
+  "id": "5d78b138-8291-525c-a42a-217e78ee97ff",
+  "name": "Monasterio de El Paular",
+  "category": "museo",
+  "neighborhood": "Rascafría",
+  "address": "Carretera M-604, km 26,5, Rascafría",
+  "lat": 40.88877,
+  "lng": -3.88746,
+  "price_level": 1,
+  "avg_cost_eur": 6,
+  "avg_duration_min": 60,
+  "opening_hours": {
+   "sat": [
+    "11:00",
+    "18:00"
+   ],
+   "sun": [
+    "11:00",
+    "18:00"
+   ]
+  },
+  "indoor": true,
+  "tags": [
+   "cultura",
+   "tranquilo",
+   "lluvia",
+   "pareja",
+   "escapada"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Monasterio%20de%20El%20Paular%2C%20Rascafr%C3%ADa%2C%20Comunidad%20de%20Madrid",
+  "description": "Cartuja del siglo XIV con un retablo gótico de alabastro y un gran claustro; visitas guiadas en horarios fijos.",
+  "is_verified": false
+ },
+ {
+  "id": "620132ab-e99b-5227-a3f1-8634b7f00eb1",
+  "name": "Arboreto Giner de los Ríos",
+  "category": "parque",
+  "neighborhood": "Rascafría",
+  "address": "Junto al Monasterio de El Paular, Rascafría",
+  "lat": 40.8869,
+  "lng": -3.8858,
+  "price_level": 0,
+  "avg_cost_eur": 0,
+  "avg_duration_min": 45,
+  "opening_hours": {
+   "sat": [
+    "10:00",
+    "18:00"
+   ],
+   "sun": [
+    "10:00",
+    "18:00"
+   ]
+  },
+  "indoor": false,
+  "tags": [
+   "naturaleza",
+   "tranquilo",
+   "familia",
+   "pareja",
+   "escapada"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Arboreto%20Giner%20de%20los%20R%C3%ADos%2C%20Rascafr%C3%ADa%2C%20Comunidad%20de%20Madrid",
+  "description": "Pequeño bosque de árboles de toda la península junto al río Lozoya.",
+  "is_verified": false
+ },
+ {
+  "id": "eaf5e508-688f-5753-a566-d4df8f0c7325",
+  "name": "Puente del Perdón y Las Presillas",
+  "category": "parque",
+  "neighborhood": "Rascafría",
+  "address": "Carretera M-604, junto al río Lozoya, Rascafría",
+  "lat": 40.8871,
+  "lng": -3.8864,
+  "price_level": 0,
+  "avg_cost_eur": 0,
+  "avg_duration_min": 60,
+  "opening_hours": {
+   "sat": [
+    "08:00",
+    "20:00"
+   ],
+   "sun": [
+    "08:00",
+    "20:00"
+   ]
+  },
+  "indoor": false,
+  "tags": [
+   "naturaleza",
+   "familia",
+   "niños",
+   "tranquilo",
+   "escapada"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Puente%20del%20Perd%C3%B3n%2C%20Rascafr%C3%ADa%2C%20Comunidad%20de%20Madrid",
+  "description": "Puente medieval y praderas junto al Lozoya; en verano, piscinas naturales de Las Presillas.",
+  "is_verified": false
+ },
+ {
+  "id": "9c3ccf14-bf0f-55c2-add5-6fc7b1b7037f",
+  "name": "Restaurantes de Rascafría",
+  "category": "restaurante",
+  "neighborhood": "Rascafría",
+  "address": "Plaza de la Villa y alrededores, Rascafría",
+  "lat": 40.9045,
+  "lng": -3.879,
+  "price_level": 2,
+  "avg_cost_eur": 24,
+  "avg_duration_min": 90,
+  "opening_hours": {
+   "sat": [
+    "13:00",
+    "23:00"
+   ],
+   "sun": [
+    "13:00",
+    "23:00"
+   ]
+  },
+  "indoor": true,
+  "tags": [
+   "gastronomia",
+   "familia",
+   "pareja",
+   "escapada"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Rascafr%C3%ADa%2C%20Comunidad%20de%20Madrid",
+  "description": "Carne de la sierra y cocina casera en el pueblo, a dos kilómetros del monasterio.",
+  "is_verified": false
+ },
+ {
+  "id": "41dc5ac9-5d24-5e47-a71a-fd0554563b49",
+  "name": "Murallas de Buitrago",
+  "category": "paseo",
+  "neighborhood": "Buitrago del Lozoya",
+  "address": "Recinto amurallado, Buitrago del Lozoya",
+  "lat": 40.9962,
+  "lng": -3.6352,
+  "price_level": 0,
+  "avg_cost_eur": 0,
+  "avg_duration_min": 60,
+  "opening_hours": {
+   "sat": [
+    "00:00",
+    "23:59"
+   ],
+   "sun": [
+    "00:00",
+    "23:59"
+   ]
+  },
+  "indoor": false,
+  "tags": [
+   "cultura",
+   "fotogenico",
+   "tranquilo",
+   "familia",
+   "pareja",
+   "escapada"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Muralla%20de%20Buitrago%20del%20Lozoya%2C%20Comunidad%20de%20Madrid",
+  "description": "Recinto amurallado medieval abrazado por un meandro del río Lozoya; el paseo junto al río lo rodea.",
+  "is_verified": false
+ },
+ {
+  "id": "a74b94db-d4e5-5417-a97d-f71c606e5c33",
+  "name": "Museo Picasso (Colección Eugenio Arias)",
+  "category": "museo",
+  "neighborhood": "Buitrago del Lozoya",
+  "address": "Plaza de Picasso, 1, Buitrago del Lozoya",
+  "lat": 40.9935,
+  "lng": -3.6369,
+  "price_level": 0,
+  "avg_cost_eur": 0,
+  "avg_duration_min": 40,
+  "opening_hours": {
+   "sat": [
+    "10:00",
+    "14:00"
+   ],
+   "sun": [
+    "10:00",
+    "14:00"
+   ]
+  },
+  "indoor": true,
+  "tags": [
+   "cultura",
+   "tranquilo",
+   "lluvia",
+   "escapada"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Museo%20Picasso%2C%20Buitrago%20del%20Lozoya%2C%20Comunidad%20de%20Madrid",
+  "description": "Obras que Picasso regaló a su barbero y amigo, Eugenio Arias, natural de Buitrago. Gratis.",
+  "is_verified": false
+ },
+ {
+  "id": "32ea5cb0-0e56-500d-a98a-6317a9ac4ab2",
+  "name": "Restaurantes de Buitrago",
+  "category": "restaurante",
+  "neighborhood": "Buitrago del Lozoya",
+  "address": "Calle Real y alrededores, Buitrago del Lozoya",
+  "lat": 40.9945,
+  "lng": -3.6362,
+  "price_level": 2,
+  "avg_cost_eur": 22,
+  "avg_duration_min": 90,
+  "opening_hours": {
+   "sat": [
+    "13:00",
+    "23:00"
+   ],
+   "sun": [
+    "13:00",
+    "23:00"
+   ]
+  },
+  "indoor": true,
+  "tags": [
+   "gastronomia",
+   "familia",
+   "pareja",
+   "escapada"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Buitrago%20del%20Lozoya%2C%20Comunidad%20de%20Madrid",
+  "description": "Asadores y mesones junto a la muralla, con cordero y cochinillo.",
+  "is_verified": false
+ },
+ {
+  "id": "73b02ca3-9bfd-5c27-a312-0493ccb96022",
+  "name": "Patones de Arriba",
+  "category": "paseo",
+  "neighborhood": "Patones",
+  "address": "Patones de Arriba, Patones",
+  "lat": 40.86598,
+  "lng": -3.4929,
+  "price_level": 0,
+  "avg_cost_eur": 0,
+  "avg_duration_min": 60,
+  "opening_hours": {
+   "sat": [
+    "00:00",
+    "23:59"
+   ],
+   "sun": [
+    "00:00",
+    "23:59"
+   ]
+  },
+  "indoor": false,
+  "tags": [
+   "cultura",
+   "fotogenico",
+   "tranquilo",
+   "pareja",
+   "familia",
+   "escapada"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Patones%20de%20Arriba%2C%20Comunidad%20de%20Madrid",
+  "description": "Pueblo de pizarra colgado de la ladera, peatonal y empinado; cuenta la leyenda que tuvo su propio rey.",
+  "is_verified": false
+ },
+ {
+  "id": "10718412-8a90-5a72-a801-4794b81a3364",
+  "name": "Restaurantes de Patones de Arriba",
+  "category": "restaurante",
+  "neighborhood": "Patones",
+  "address": "Calle del Ayuntamiento y alrededores, Patones de Arriba",
+  "lat": 40.8656,
+  "lng": -3.4924,
+  "price_level": 2,
+  "avg_cost_eur": 28,
+  "avg_duration_min": 105,
+  "opening_hours": {
+   "sat": [
+    "13:00",
+    "23:00"
+   ],
+   "sun": [
+    "13:00",
+    "23:00"
+   ]
+  },
+  "indoor": true,
+  "tags": [
+   "gastronomia",
+   "pareja",
+   "amigos",
+   "familia",
+   "escapada"
+  ],
+  "external_url": "https://www.openstreetmap.org/search?query=Patones%20de%20Arriba%2C%20Comunidad%20de%20Madrid",
+  "description": "Casas de piedra convertidas en restaurantes; conviene reservar el fin de semana.",
+  "is_verified": false
  }
 ]

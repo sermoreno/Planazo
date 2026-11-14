@@ -51,7 +51,10 @@ function candidates(places: Place[], p: Prefs): Place[] {
   const days: Day[] = p.day === 'both' ? ['sat', 'sun'] : [p.day]
   const avoid = new Set(p.constraints.avoidNeighborhoods ?? [])
   const budget = p.budget * (p.constraints.cheaper ? 0.6 : 1)
+  // Solo lugares cerca del punto de salida (o del centro): así un plan en Madrid no mezcla pueblos de las escapadas, y una escapada se queda en su pueblo.
+  const from = p.constraints.origin ?? SOL
   return places
+    .filter((x) => kmBetween(from, x) <= 14)
     .filter((x) => days.some((d) => x.opening_hours?.[d]) && x.avg_cost_eur <= budget && !avoid.has(x.neighborhood))
     .filter((x) => !p.constraints.rain || x.indoor || x.category === 'restaurante' || x.category === 'bar')
     .map((x) => ({ x, s: p.interests.filter((i) => x.tags.includes(i)).length * 2 + (p.companions && x.tags.includes(p.companions) ? 1 : 0) + (FOOD.has(x.category) ? 1 : 0) }))
@@ -60,6 +63,12 @@ function candidates(places: Place[], p: Prefs): Place[] {
     .map(({ x }) => x)
 }
 const FOOD = new Set(['restaurante', 'bar', 'mercado', 'cafetería'])
+const SOL = { lat: 40.4169, lng: -3.7035 }
+function kmBetween(a: { lat: number; lng: number }, b: { lat: number; lng: number }) {
+  const r = Math.PI / 180, dLat = (b.lat - a.lat) * r, dLng = (b.lng - a.lng) * r
+  const h = Math.sin(dLat / 2) ** 2 + Math.cos(a.lat * r) * Math.cos(b.lat * r) * Math.sin(dLng / 2) ** 2
+  return 12742 * Math.asin(Math.sqrt(h))
+}
 
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') return new Response('ok', { headers: cors })
