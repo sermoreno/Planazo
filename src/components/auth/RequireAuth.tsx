@@ -1,7 +1,8 @@
 import { useEffect } from 'react'
 import { Navigate, useLocation, useNavigate } from 'react-router-dom'
+import { NotFound } from '@/components/EmptyState'
 import { Skeleton } from '@/components/ui/skeleton'
-import { useAuth } from '@/lib/auth'
+import { isAdmin, useAuth } from '@/lib/auth'
 
 /** Rutas privadas: sin sesión, se va a /entrar y, al entrar, se vuelve a la página pedida (con su estado). */
 export function RequireAuth({ children }: { children: React.ReactNode }) {
@@ -17,6 +18,13 @@ export function RequireAuth({ children }: { children: React.ReactNode }) {
     return <Navigate to={`/entrar?next=${encodeURIComponent(next)}`} replace state={{ from: location }} />
   }
   return <>{children}</>
+}
+
+/** Zona de administración: solo admins (va dentro de RequireAuth). Para el resto es una página que no existe.
+ *  La protección real está en la base de datos: cada función de admin comprueba el rol en el servidor. */
+export function RequireAdmin({ children }: { children: React.ReactNode }) {
+  const { user } = useAuth()
+  return isAdmin(user) ? <>{children}</> : <NotFound />
 }
 
 /** Si se abre un enlace de recuperación y Supabase vuelve a otra página, se lleva a elegir la contraseña nueva. */

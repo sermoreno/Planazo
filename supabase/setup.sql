@@ -273,8 +273,10 @@ begin
 end $$;
 
 -- =====================================================================
--- 4. Admin principal: se asigna a la cuenta cuyo email esté en private.settings,
---    solo cuando ese email está verificado (así nadie puede registrarse con él y quedarse el rol).
+-- 4. Admin principal: solo se asigna ejecutando a mano private.apply_principal_admin() en el SQL Editor,
+--    a la cuenta cuyo email esté en private.settings y con ese email ya verificado.
+--    Nada se asigna solo al registrarse, y si ya hay un admin principal no se le puede quitar el rol
+--    (para cambiarlo hay que hacerlo a propósito desde el SQL Editor, ver README).
 -- =====================================================================
 create or replace function private.apply_principal_admin() returns void
 language plpgsql security definer set search_path = '' as $$
@@ -284,25 +286,15 @@ begin
   if coalesce(target_email, '') = '' then return; end if;
   select id into target from auth.users where lower(email) = target_email and email_confirmed_at is not null;
   if target is null then return; end if;
-  if exists (select 1 from public.profiles where id = target and role = 'owner') then return; end if;
-  update public.profiles set role = 'admin' where role = 'owner';
+  if exists (select 1 from public.profiles where role = 'owner') then return; end if;
   insert into public.profiles (id, display_name, role) values (target, split_part(target_email, '@', 1), 'owner')
     on conflict (id) do update set role = 'owner';
   insert into public.admin_audit (actor_id, action, target_id) values (null, 'principal_admin', target);
 end $$;
 
-create or replace function private.on_auth_user_change() returns trigger
-language plpgsql security definer set search_path = '' as $$
-begin
-  if new.email_confirmed_at is not null
-     and lower(new.email) = (select lower(trim(value)) from private.settings where key = 'principal_admin_email') then
-    perform private.apply_principal_admin();
-  end if;
-  return new;
-end $$;
+-- Versión anterior de este archivo: asignaba el rol sola al verificar el email. Se quita.
 drop trigger if exists on_auth_user_role on auth.users;
-create trigger on_auth_user_role after insert or update of email, email_confirmed_at on auth.users
-  for each row execute function private.on_auth_user_change();
+drop function if exists private.on_auth_user_change();
 
 -- =====================================================================
 -- 5. Funciones de administración (comprueban el rol dentro; la app solo enseña el panel a admins).

@@ -25,8 +25,9 @@ insert into private.settings (key, value) values ('principal_admin_email', 'tu-e
   on conflict (key) do update set value = excluded.value;
 select private.apply_principal_admin();
 ```
-  El rol solo se aplica cuando ese email está verificado; si la cuenta aún no existe, se aplica sola al verificarlo.
-- Panel `/admin` (solo admins): lista de cuentas con email, plan y número de planes (sin ver su contenido), cambio Gratis/Premium y registro de acciones. Solo el admin principal nombra o quita admins. El admin principal no puede borrar su cuenta desde la app.
+  Solo funciona si la cuenta ya existe con el email verificado (si no, créala en Authentication → Users → Add user con "Auto Confirm User" y vuelve a ejecutarlo). Nunca se asigna sola al registrarse.
+  Una vez asignado, nadie puede quitárselo desde la app ni volver a ejecutarlo para otra cuenta. Para traspasarlo a propósito: `update public.profiles set role = 'user' where role = 'owner';`, cambia el email en `private.settings` y ejecuta de nuevo `select private.apply_principal_admin();`.
+- Panel `/admin` (solo admins; para el resto la ruta responde "Página no encontrada"): lista de cuentas con email, plan y número de planes (sin ver su contenido), cambio Gratis/Premium y registro de acciones. Solo el admin principal nombra o quita admins. El admin principal no puede borrar su cuenta desde la app.
 
 ### Seguridad de datos (RLS)
 - Cada persona solo ve y modifica sus perfiles, preferencias, planes y paradas. Sin sesión solo se lee el catálogo de sitios.

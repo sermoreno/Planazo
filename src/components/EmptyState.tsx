@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom'
 import { Button } from './ui/button'
 
+/** Misma respuesta para una ruta que no existe y para una zona sin permiso (no se revela que existe). */
+export const NotFound = () => <EmptyState title="Página no encontrada" text="Vuelve al inicio y crea tu plan." cta={{ to: '/', label: 'Ir al inicio' }} />
+
 export function EmptyState({ title, text, cta }: { title: string; text: string; cta?: { to: string; label: string } }) {
   return (
     <div className="mx-auto flex max-w-md flex-col items-center px-6 py-16 text-center">
