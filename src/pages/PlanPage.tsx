@@ -168,7 +168,7 @@ export default function PlanPage() {
 
   return (
     <>
-      <ItineraryView it={it} edit={edit} toolbar={toolbar} />
+      <ItineraryView it={it} edit={edit} toolbar={toolbar} onRain={() => adjust('rain')} />
 
       <div aria-live="polite" className="pointer-events-none fixed inset-x-0 bottom-24 z-[1500] flex justify-center px-4 lg:bottom-6">
         <AnimatePresence>

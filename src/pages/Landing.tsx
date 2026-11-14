@@ -3,10 +3,12 @@ import { ArrowRight, Compass, Footprints, MessageCircle, Sparkles, Wallet } from
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { PhotoBackdrop } from '@/components/PhotoBackdrop'
+import { WeatherIcon } from '@/components/Weather'
 import { Button } from '@/components/ui/button'
 import { PLACES } from '@/lib/places'
 import { heroPhotos, placePhoto } from '@/lib/photos'
 import { euros } from '@/lib/utils'
+import { dateFor, dayWx, useForecast } from '@/lib/weather'
 
 const FEELINGS = ['desconectar', 'inspirarte', 'llenarte de energía', 'reír con amigos', 'enamorarte de Madrid']
 const MOODS = [
@@ -17,6 +19,22 @@ const MOODS = [
   { label: 'Con los peques', mood: 'Quiero un plan con los niños para pasarlo en familia' },
 ]
 const FEATURED = ['Templo de Debod', 'Palacio de Cristal', 'Teleférico de Madrid', 'Mercado de San Miguel', 'Museo Nacional de Ciencias Naturales', 'Museo del Prado', 'Azotea del Círculo de Bellas Artes', 'Barcas del Estanque del Retiro', 'Matadero Madrid', 'Plaza Mayor', 'Café Central', 'Parque El Capricho', 'Zoo Aquarium de Madrid', 'Parque del Retiro']
+
+/** Previsión del finde en Madrid (Open-Meteo), discreta sobre la foto. */
+function WeekendWeather() {
+  const f = useForecast()
+  const days = (['sat', 'sun'] as const).map((d) => ({ d, wx: dayWx(f, dateFor(d)) })).filter((x) => x.wx)
+  if (!days.length) return null
+  return (
+    <motion.a href="https://open-meteo.com/" target="_blank" rel="noreferrer" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
+      title="Previsión de Open-Meteo.com" aria-label={'Tiempo este finde en Madrid: ' + days.map(({ d, wx }) => `${d === 'sat' ? 'sábado' : 'domingo'} ${Math.round(wx!.max)} grados`).join(', ') + '. Datos de Open-Meteo.com'}
+      className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 py-1.5 text-[13px] font-semibold backdrop-blur-md hover:bg-white/15">
+      {days.map(({ d, wx }, i) => (
+        <span key={d} className="inline-flex items-center gap-1">{i > 0 && <span className="mr-1 text-white/50" aria-hidden>·</span>}{d === 'sat' ? 'Sáb' : 'Dom'} <WeatherIcon code={wx!.code} className="h-4 w-4 text-white" /> {Math.round(wx!.max)}°</span>
+      ))}
+    </motion.a>
+  )
+}
 
 export default function Landing() {
   const navigate = useNavigate()
@@ -32,9 +50,12 @@ export default function Landing() {
       <section className="relative -mt-14 flex min-h-[100svh] flex-col justify-end overflow-hidden pb-14 pt-24 text-white sm:pb-20">
         <PhotoBackdrop photos={photos} />
         <div className="relative z-10 mx-auto w-full max-w-6xl px-4">
-          <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 py-1.5 text-[13px] font-semibold backdrop-blur-md">
-            <span className="h-2 w-2 animate-pulse rounded-full bg-coral" /> Ciudad piloto · Madrid
-          </motion.p>
+          <div className="flex flex-wrap gap-2">
+            <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 py-1.5 text-[13px] font-semibold backdrop-blur-md">
+              <span className="h-2 w-2 animate-pulse rounded-full bg-coral" /> Ciudad piloto · Madrid
+            </motion.p>
+            <WeekendWeather />
+          </div>
           <motion.h1 initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.08 }} className="mt-5 max-w-4xl text-[44px] font-extrabold leading-[0.98] tracking-[-0.035em] [text-wrap:balance] sm:text-7xl lg:text-[88px]">
             Este finde, quiero
             <span className="relative block h-[1.05em] overflow-hidden text-coral">

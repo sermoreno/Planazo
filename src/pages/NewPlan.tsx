@@ -3,6 +3,7 @@ import { ArrowRight, Loader2, MapPin, Shuffle, Sparkles, Umbrella } from 'lucide
 import { useEffect, useRef, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { PhotoBackdrop } from '@/components/PhotoBackdrop'
+import { DayForecast, WeatherCredit } from '@/components/Weather'
 import { heroPhotos } from '@/lib/photos'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
@@ -12,7 +13,8 @@ import { Slider } from '@/components/ui/slider'
 import { COMPANIONS, generatePlan, greeting, INTERESTS, missingQuestions, PACES, surprise, type Question } from '@/lib/agent'
 import { geocode } from '@/lib/geocode'
 import { putDraft } from '@/lib/store'
-import type { DayChoice, Interest, Preferences } from '@/lib/types'
+import type { Day, DayChoice, Interest, Preferences } from '@/lib/types'
+import { dateFor, dayWx, rainRisk, useForecast } from '@/lib/weather'
 import { cn } from '@/lib/utils'
 
 const DAYS: { label: string; value: DayChoice }[] = [{ label: 'Sábado', value: 'sat' }, { label: 'Domingo', value: 'sun' }, { label: 'Sáb. y dom.', value: 'both' }]
@@ -32,6 +34,34 @@ export default function NewPlan() {
   const [busy, setBusy] = useState(false)
   const navigate = useNavigate()
   const set = (patch: Partial<Preferences>) => setPrefs((p) => ({ ...p, ...patch }))
+
+  // Tiempo del finde (Open-Meteo): si se espera lluvia el día elegido, se activa "Puede llover" (salvo que lo hayas tocado tú).
+  const forecast = useForecast()
+  const [rainTouched, setRainTouched] = useState(false)
+  const chosen: Day[] = prefs.day === 'both' ? ['sat', 'sun'] : [prefs.day]
+  const wetDays = chosen.filter((d) => rainRisk(dayWx(forecast, dateFor(d))) === 'alta')
+  const wetKey = wetDays.join()
+  useEffect(() => {
+    if (!forecast || rainTouched) return
+    setPrefs((p) => (!!p.constraints.rain === wetDays.length > 0 ? p : { ...p, constraints: { ...p.constraints, rain: wetDays.length > 0 } }))
+  }, [forecast, wetKey, rainTouched]) // eslint-disable-line react-hooks/exhaustive-deps
+  const toggleRain = () => { setRainTouched(true); setPrefs((p) => ({ ...p, constraints: { ...p.constraints, rain: !p.constraints.rain } })) }
+  const weatherBox = forecast ? (
+    <div className="mt-3 w-full">
+      <div className="flex gap-2">
+        {(['sat', 'sun'] as Day[]).map((d) => <DayForecast key={d} day={d} wx={dayWx(forecast, dateFor(d))} selected={chosen.includes(d)} />)}
+      </div>
+      {wetDays.length > 0 && (
+        <p className="mt-2 flex items-start gap-2 text-sm text-[#1D4E80]">
+          <Umbrella className="mt-0.5 h-4 w-4 shrink-0" aria-hidden />
+          <span>{prefs.constraints.rain
+            ? <>Se espera lluvia el {wetDays.map((d) => DAYS.find((x) => x.value === d)!.label.toLowerCase()).join(' y el ')}: buscaré sitios a cubierto. <button type="button" onClick={toggleRain} className="font-bold underline underline-offset-2">No hace falta</button></>
+            : <>Se espera lluvia, pero has preferido no limitarte a sitios a cubierto. <button type="button" onClick={toggleRain} className="font-bold underline underline-offset-2">Priorizar a cubierto</button></>}</span>
+        </p>
+      )}
+      <WeatherCredit className="mt-1 inline-block" />
+    </div>
+  ) : null
 
   async function withOrigin(p: Preferences): Promise<Preferences> {
     if (!origin.trim()) return { ...p, constraints: { ...p.constraints, origin: undefined } }
@@ -109,7 +139,7 @@ export default function NewPlan() {
           </div>
         ) : (
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
-            <Summary prefs={prefs} set={set} />
+            <Summary prefs={prefs} set={set} onRain={toggleRain} />
             <div className="mt-4 flex flex-col-reverse gap-2 sm:flex-row sm:justify-between">
               <Button variant="ghost" onClick={() => setStage('form')}>Volver a preferencias</Button>
               <Button size="lg" onClick={() => run(prefs)}><Sparkles className="h-5 w-5" aria-hidden /> Generar mi plan</Button>
@@ -135,6 +165,7 @@ export default function NewPlan() {
 
       <Field label="¿Cuándo?">
         {DAYS.map((d) => <Chip key={d.value} selected={prefs.day === d.value} onClick={() => set({ day: d.value })}>{d.label}</Chip>)}
+        {weatherBox}
       </Field>
       <Field label="¿Con quién?">
         {COMPANIONS.map((c) => <Chip key={c.value} selected={prefs.companions === c.value} onClick={() => set({ companions: prefs.companions === c.value ? null : c.value })}>{c.label}</Chip>)}
@@ -196,7 +227,7 @@ function Field({ label, children, aside, htmlFor }: { label: string; children: R
 }
 
 /** Resumen editable de restricciones antes de generar. */
-function Summary({ prefs, set }: { prefs: Preferences; set: (p: Partial<Preferences>) => void }) {
+function Summary({ prefs, set, onRain }: { prefs: Preferences; set: (p: Partial<Preferences>) => void; onRain: () => void }) {
   const c = prefs.constraints
   const row = 'border-t border-noche/10 py-3 first:border-0'
   return (
@@ -228,7 +259,7 @@ function Summary({ prefs, set }: { prefs: Preferences; set: (p: Partial<Preferen
       <div className={cn(row, 'flex flex-wrap items-end gap-3')}>
         <TimeInput id="start" label="Empezar a las" value={c.startTime ?? '10:30'} onChange={(v) => set({ constraints: { ...c, startTime: v } })} />
         <TimeInput id="end" label="Terminar antes de" value={c.endTime ?? '22:00'} onChange={(v) => set({ constraints: { ...c, endTime: v } })} />
-        <Chip className="min-h-9 px-3 py-1 text-sm" selected={!!c.rain} onClick={() => set({ constraints: { ...c, rain: !c.rain } })}><Umbrella className="mr-1 inline h-4 w-4" aria-hidden />Puede llover</Chip>
+        <Chip className="min-h-9 px-3 py-1 text-sm" selected={!!c.rain} onClick={onRain}><Umbrella className="mr-1 inline h-4 w-4" aria-hidden />Puede llover</Chip>
       </div>
       <div className={row}>
         <label htmlFor="mood2" className="mb-2 block text-sm font-bold text-noche-600">Cómo quieres sentirte</label>

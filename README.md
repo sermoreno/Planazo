@@ -44,6 +44,12 @@ VITE_SUPABASE_URL=https://xxxx.supabase.co
 VITE_SUPABASE_ANON_KEY=eyJ...
 ```
 
+## Tiempo (Open-Meteo)
+- Previsión de 16 días por horas de [Open-Meteo](https://open-meteo.com), gratis y sin clave; se pide desde el navegador con caché de 1 hora (`src/lib/weather.ts`).
+- Al crear un plan se ve el tiempo del sábado y del domingo; si se espera lluvia el día elegido, se activa "Puede llover" (sitios a cubierto), que se puede desactivar.
+- En el itinerario: resumen del día, tiempo a la hora de cada parada y avisos de lluvia (con botón "Adaptar a la lluvia"), calor (≥ 32 °C) o frío (≤ 5 °C). En la portada, la previsión del finde.
+- Licencia: datos CC BY 4.0, se cita "Open-Meteo.com" junto al tiempo y en Créditos. La API gratuita es solo para uso no comercial (menos de 10.000 llamadas al día); si Planazo pasa a cobrar, contrata su API comercial y pon su URL en `VITE_WEATHER_URL`.
+
 ## Activar el agente de IA (Claude)
 Sin esto, la app usa el planificador local (mismo formato de salida).
 ```bash

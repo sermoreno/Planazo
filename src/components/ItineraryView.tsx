@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { AlertTriangle, ChevronDown, ChevronUp, Clock, ExternalLink, Footprints, MapPin, RefreshCw, Trash2, Wallet } from 'lucide-react'
 import { forwardRef, useEffect, useMemo, useRef, useState } from 'react'
 import { MapView } from './MapView'
+import { PlanWeather, StopWeather, type PlanWxSummary } from './Weather'
 import { Badge } from './ui/badge'
 import { Button } from './ui/button'
 import { Card } from './ui/card'
@@ -11,6 +12,33 @@ import { totalCost, totalMinutes } from '@/lib/planner'
 import { walkingRoute } from '@/lib/routing'
 import type { Day, Itinerary, Place, Slot } from '@/lib/types'
 import { cn, DAY_LABEL, durationLabel, euros, toMin } from '@/lib/utils'
+import { dateFor, dayWx, HOT, hourWx, useForecast, wetHour, type Forecast, type HourWx } from '@/lib/weather'
+
+/** Horas en punto que ocupa una parada (10:30–12:15 → 10, 11, 12). */
+const hoursOf = (s: Slot) => { const a = Math.floor(toMin(s.start_time) / 60), b = Math.max(a, Math.ceil(toMin(s.end_time) / 60) - 1); return Array.from({ length: b - a + 1 }, (_, i) => String(a + i).padStart(2, '0') + ':00') }
+
+/** Tiempo del plan: resumen por día y, por parada, la hora de inicio y si le pilla lluvia o calor estando al aire libre. */
+function planWeather(it: Itinerary, days: Day[], f: Forecast | null | undefined) {
+  const perSlot: Record<string, HourWx | undefined> = {}
+  const summary: PlanWxSummary[] = []
+  for (const d of days) {
+    const date = dateFor(d), wx = dayWx(f, date)
+    if (!wx) continue
+    const item: PlanWxSummary = { day: d, wx, wetOutdoor: [], hotOutdoor: [], coldest: null }
+    for (const s of it.slots.filter((x) => x.day === d)) {
+      const p = getPlace(s.place_id)!
+      const hs = hoursOf(s).map((h) => hourWx(f, date, h)).filter(Boolean) as HourWx[]
+      perSlot[s.id] = hourWx(f, date, s.start_time)
+      if (!hs.length) continue
+      const max = Math.max(...hs.map((h) => h.temp)), min = Math.min(...hs.map((h) => h.temp))
+      item.coldest = Math.min(item.coldest ?? 99, min)
+      if (!p.indoor && hs.some(wetHour)) item.wetOutdoor.push(p.name)
+      else if (!p.indoor && max >= HOT) item.hotOutdoor.push({ name: p.name, temp: max })
+    }
+    summary.push(item)
+  }
+  return { perSlot, summary }
+}
 
 export interface EditHandlers {
   alternatives: (slotId: string) => Place[]
@@ -19,7 +47,7 @@ export interface EditHandlers {
 }
 
 /** Vista dividida: timeline + mapa. En móvil, mapa arriba plegable y lista como bottom sheet. */
-export function ItineraryView({ it, edit, toolbar }: { it: Itinerary; edit?: EditHandlers; toolbar?: React.ReactNode }) {
+export function ItineraryView({ it, edit, toolbar, onRain }: { it: Itinerary; edit?: EditHandlers; toolbar?: React.ReactNode; onRain?: () => void }) {
   const [active, setActive] = useState<string | null>(null)
   const [mapOpen, setMapOpen] = useState(true)
   const [legs, setLegs] = useState<Record<string, number>>({})
@@ -28,6 +56,14 @@ export function ItineraryView({ it, edit, toolbar }: { it: Itinerary; edit?: Edi
 
   const days = useMemo(() => (['sat', 'sun'] as Day[]).filter((d) => it.slots.some((s) => s.day === d)), [it.slots])
   const routeKey = it.slots.map((s) => s.place_id + s.day).join('|')
+
+  // Tiempo (Open-Meteo) en el centro de las paradas del plan.
+  const center = useMemo(() => {
+    const ps = it.slots.map((s) => getPlace(s.place_id)).filter(Boolean) as Place[]
+    return ps.length ? { lat: ps.reduce((a, p) => a + p.lat, 0) / ps.length, lng: ps.reduce((a, p) => a + p.lng, 0) / ps.length } : undefined
+  }, [routeKey]) // eslint-disable-line react-hooks/exhaustive-deps
+  const forecast = useForecast(center?.lat, center?.lng)
+  const weather = useMemo(() => planWeather(it, days, forecast), [it, days, forecast])
 
   // Ruta a pie OSRM por día; actualiza minutos de traslado entre tarjetas.
   useEffect(() => {
@@ -83,6 +119,7 @@ export function ItineraryView({ it, edit, toolbar }: { it: Itinerary; edit?: Edi
           </div>
 
           {toolbar}
+          <PlanWeather items={weather.summary} onRain={onRain} />
 
           {days.map((d) => (
             <section key={d} className="mt-2">
@@ -100,6 +137,7 @@ export function ItineraryView({ it, edit, toolbar }: { it: Itinerary; edit?: Edi
                         onActivate={() => select(s.id, false)}
                         edit={edit}
                         canRemove={arr.length > 1}
+                        wx={weather.perSlot[s.id]}
                       />
                     </motion.li>
                   ))}
@@ -144,8 +182,8 @@ function TravelGap({ minutes, free }: { minutes: number; free: number }) {
 }
 
 
-const StopCard = forwardRef<HTMLDivElement, { slot: Slot; n: number; active: boolean; onActivate: () => void; edit?: EditHandlers; canRemove: boolean }>(
-  function StopCard({ slot, n, active, onActivate, edit, canRemove }, ref) {
+const StopCard = forwardRef<HTMLDivElement, { slot: Slot; n: number; active: boolean; onActivate: () => void; edit?: EditHandlers; canRemove: boolean; wx?: HourWx }>(
+  function StopCard({ slot, n, active, onActivate, edit, canRemove, wx }, ref) {
     const p = getPlace(slot.place_id)!
     const photo = placePhoto(p.name)
     const [alts, setAlts] = useState<Place[] | null>(null)
@@ -178,6 +216,7 @@ const StopCard = forwardRef<HTMLDivElement, { slot: Slot; n: number; active: boo
               <Badge>{euros(slot.est_cost)}{slot.est_cost > 0 && ' aprox.'}</Badge>
               <Badge className="bg-noche/5 capitalize text-noche">{p.category}</Badge>
               {p.indoor && <Badge className="bg-noche/5 text-noche">A cubierto</Badge>}
+              <StopWeather wx={wx} indoor={p.indoor} />
             </div>
             <p className="mt-3 text-[15px] leading-relaxed"><span className="font-bold">Por qué encaja: </span>{slot.reason.replace(/^Encaja porque /, '')}</p>
             <p className="mt-2 flex items-start gap-1.5 rounded-xl bg-[#FFF4D6] px-3 py-2 text-[13px] font-medium text-[#6B4E00]">
